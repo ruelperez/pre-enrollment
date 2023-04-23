@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('subject_code');
-            $table->string('unit');
-            $table->string('day');
-            $table->string('time');
-            $table->string('room');
-            $table->string('modality');
-            $table->string('teacher');
-            $table->string('tuition');
+            $table->string('name')->nullable();
+            $table->string('subject_code')->nullable();
+            $table->string('unit')->nullable();
+            $table->string('day')->nullable();
+            $table->string('time')->nullable();
+            $table->string('room')->nullable();
+            $table->string('modality')->nullable();
+            $table->string('teacher')->nullable();
+            $table->string('tuition')->nullable();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('yearlevel_id');
             $table->unsignedBigInteger('semester_id');

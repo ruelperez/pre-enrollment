@@ -1,4 +1,4 @@
-<div>
+<div>@include('modal.subject_reg')
 {{--    <div style="display: flex;">--}}
 {{--        <div style="width: 20%; margin-left: 21%;">@error('year') <span style="color: red;>{{ $message }}</span> @enderror</div>--}}
 {{--        <div style="width: 20%;">@error('semister') <span style="color: red;">{{ $message }}</span> @enderror</div>--}}
@@ -36,7 +36,7 @@
             </div>
 
             <div class="button">
-                <button type="submit" class="btn btn-primary">Proceed</button>
+                <button type="submit" class="btn btn-primary" wire:click="loadData" wire:loading.attr="disabled">Proceed</button>
             </div>
         </div>
 
@@ -45,7 +45,19 @@
     <div class="button" style="margin-left: 5%;margin-top: 30px;">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sub_reg" style="width: 10%; margin-left: 1px;">Add</button>
     </div>
-    <div class="divform">
+    @if(session()->has('deleted'))
+        <div class="alert alert-success" style="width: 70%; margin-left: 15%; text-align: center; ">
+            {{ session('deleted') }}
+        </div>
+    @elseif(session()->has('error'))
+        <div class="alert alert-danger" style="width: 60%; ">
+            {{ session('error') }}
+        </div>
+    @endif
+    <div class="spinner-border" style="width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status" wire:loading wire:target="loadData">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="divform" wire:loading.remove>
         <table class="table table-hover">
             <thead>
             <tr>
@@ -58,6 +70,7 @@
                 <th>Modality</th>
                 <th>Teacher</th>
                 <th>Tuition fee</th>
+                <th></th>
             </tr>
             </thead>
 
@@ -69,6 +82,7 @@
                         </tr>
                     @else
                         @foreach($form_data as $frm_data)
+                            @include('modal.edit')
                             <tr>
                                 <td>{{$frm_data->subject_code}}</td>
                                 <td>{{$frm_data->name}}</td>
@@ -79,13 +93,18 @@
                                 <td>{{$frm_data->modality}}</td>
                                 <td>{{$frm_data->teacher}}</td>
                                 <td>{{$frm_data->tuition}}</td>
+                                <td style="padding-left: 1px;"><img src="{{url('/image/edit.png')}}" width="18" height="18" wire:click="edit({{$frm_data->id}})" data-bs-toggle="modal" data-bs-target="#sub_edit{{$frm_data->id}}" style="cursor: pointer; margin-left: 1px;">
+                                    <img src="{{url('/image/delete.png')}}" wire:click="del({{$frm_data->id}})" width="20" height="20" style="cursor: pointer; margin-left: 15px;"></td>
                             </tr>
                         @endforeach
                     @endif
+                @else
+                    <tr>
+                        <td colspan="9">Select Option List Above</td>
+                    </tr>
                 @endif
 
             </tbody>
         </table>
     </div>
-    @include('modal.subject_reg')
 </div>

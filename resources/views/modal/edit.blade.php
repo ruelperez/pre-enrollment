@@ -1,5 +1,5 @@
 
-<div wire:ignore.self class="modal" tabindex="-1" role="dialog" id="sub_reg">
+<div wire:ignore.self class="modal" tabindex="-1" role="dialog" id="sub_edit{{$frm_data->id}}">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +16,7 @@
                         {{ session('dataError') }}
                     </div>
                 @endif
-                <form wire:submit.prevent="submit_reg">
+                <form wire:submit.prevent="submit_edit">
                     <div class="mb-3" hidden>
                         <label class="form-label">Course ID</label>
                         <input type="text" class="form-control" wire:model.defer="course_id">
@@ -80,9 +80,8 @@
 
                     <div style="margin-left: 50%;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" wire:click="close">Close</button>
-                        <button type="submit" class="btn btn-primary" style="margin-left: 10%; width: 50%;">Submit</button>
+                        <button type="submit" class="btn btn-primary" wire:click="sub_edit" style="margin-left: 10%; width: 50%;">Submit</button>
                     </div>
-
                 </form>
             </div>
         </div>
