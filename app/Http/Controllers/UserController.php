@@ -17,13 +17,21 @@ class UserController extends Controller
             "password" => 'required|confirmed|min:5'
         ]);
 
-        $validated['password'] = bcrypt($validated['password']);
+        $userData = User::all();
 
-        $user = User::create($validated);
+        if (count($userData) == 0){
+            $validated['password'] = bcrypt($validated['password']);
 
-        auth()->login($user);
+            $user = User::create($validated);
 
-        return redirect('/admin/home')->with('message_user', 'welcome!!!');
+            auth()->login($user);
+
+            return redirect('/admin/home')->with('message_user', 'welcome!!!');
+        }
+        else{
+            return  redirect('/admin/register')->with('failed', 'Failed to register, Only 1 admin user is allowed');
+        }
+
 
     }
 

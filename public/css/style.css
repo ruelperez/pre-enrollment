@@ -1,0 +1,39 @@
+.adiv {
+    width: 50%;
+    height: 60px;
+    margin-left: 25%;
+    background-color: white;
+    padding-top: 0.8%;
+    display: flex;
+}
+
+body {
+    background-color: #B0C4DE;
+}
+
+.select1{
+    width: 20%;
+    text-align: center;
+    margin-left: 5%;
+}
+
+.select2{
+    margin-left: 8%;
+}
+
+.select3{
+    margin-left: 8%;
+}
+
+.button{
+    margin-left: 10%;
+}
+
+.divform{
+    background-color: white;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    text-align: center;
+}
+

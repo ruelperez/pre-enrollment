@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('tuition');
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('yearlevel_id');
-            $table->unsignedBigInteger('semister_id');
+            $table->unsignedBigInteger('semester_id');
             $table->timestamps();
         });
     }

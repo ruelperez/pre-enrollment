@@ -8,7 +8,11 @@
                     <div class="card" style="border-radius: 15px;">
                         <div class="card-body p-5">
                             <h2 class="text-uppercase text-center mb-5">Create an Admin Account</h2>
-
+                            @if(session()->has('failed'))
+                                <div x-data="{show:true}" x-show="show" x-init="setTimeout(()=>show=false, 4000)" class="alert alert-danger text-center pt-2" role="alert" style="height: 50px;">
+                                    {{session('failed')}}
+                                </div>
+                            @endif
                             <form action="/admin/store" method="post">
                                 @csrf
 
