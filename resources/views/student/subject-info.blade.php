@@ -20,7 +20,7 @@
 
 </div>
 
-    @livewire('show-subject')
+@livewire('subject-info')
 
 
 <script type="text/javascript">

@@ -36,7 +36,7 @@
             </div>
 
             <div class="button">
-                <button type="submit" class="btn btn-primary" wire:click="loadData" wire:loading.attr="disabled">Proceed</button>
+                <button type="submit" class="btn btn-primary" wire:click="loadData" wire:loading.attr="disabled">Find</button>
             </div>
         </div>
 
@@ -83,6 +83,7 @@
                     @else
                         @foreach($form_data as $frm_data)
                             @include('modal.edit')
+                            @include('modal.delete')
                             <tr>
                                 <td>{{$frm_data->subject_code}}</td>
                                 <td>{{$frm_data->name}}</td>
@@ -94,7 +95,7 @@
                                 <td>{{$frm_data->teacher}}</td>
                                 <td>{{$frm_data->tuition}}</td>
                                 <td style="padding-left: 1px;"><img src="{{url('/image/edit.png')}}" width="18" height="18" wire:click="edit({{$frm_data->id}})" data-bs-toggle="modal" data-bs-target="#sub_edit{{$frm_data->id}}" style="cursor: pointer; margin-left: 1px;">
-                                    <img src="{{url('/image/delete.png')}}" wire:click="del({{$frm_data->id}})" width="20" height="20" style="cursor: pointer; margin-left: 15px;"></td>
+                                    <img src="{{url('/image/delete.png')}}" data-bs-toggle="modal" data-bs-target="#delete{{$frm_data->id}}"  width="20" height="20" style="cursor: pointer; margin-left: 15px;"></td>
                             </tr>
                         @endforeach
                     @endif

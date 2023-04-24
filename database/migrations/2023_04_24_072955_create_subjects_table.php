@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('subject_code')->nullable();
-            $table->string('unit')->nullable();
+            $table->integer('unit')->nullable();
             $table->string('day')->nullable();
             $table->string('time')->nullable();
             $table->string('room')->nullable();
             $table->string('modality')->nullable();
             $table->string('teacher')->nullable();
-            $table->string('tuition')->nullable();
+            $table->float('tuition')->nullable();
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('yearlevel_id');
             $table->unsignedBigInteger('semester_id');

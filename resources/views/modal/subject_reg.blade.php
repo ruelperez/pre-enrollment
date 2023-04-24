@@ -39,7 +39,7 @@
                             <input type="text" class="form-control" wire:model.defer="code">
                         </div>
                     </div>
-                    <div style="display: flex; margin-bottom: 20px;">
+                    <div style="display: flex;">
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Unit</label>
                             <input type="text" class="form-control" wire:model.defer="unit">
@@ -48,6 +48,9 @@
                             <label for="exampleInputPassword1" class="form-label">Day</label>
                             <input type="text" class="form-control" wire:model.defer="day">
                         </div>
+                    </div>
+                    <div style="margin-bottom: 20px; margin-left: 3%;">
+                        @error('unit') <span style="color: red">{{ $message }}</span> @enderror
                     </div>
                     <div style="display: flex; margin-bottom: 20px;">
                         <div class="mb-3">
@@ -59,24 +62,28 @@
                             <input type="text" class="form-control" wire:model.defer="room">
                         </div>
                     </div>
-                    <div style="display: flex; margin-bottom: 20px;">
+                    <div style="display: flex;">
                         <div class="mb-3">
-                            <select class="form-select" aria-label="Default select example" style="text-align: center" wire:model.defer="modality">
-                                <option selected>Select Modality</option>
-                                <option value="f2f">F2F</option>
-                                <option value="online">Online</option>
-                            </select>
-                        </div>
-                        <div class="mb-3" style="margin-left: 5%;">
                             <label for="exampleInputPassword1" class="form-label">Teacher</label>
                             <input type="text" class="form-control" wire:model.defer="teacher">
                         </div>
+                        <div class="mb-3" style="margin-left: 5%;">
+                            <label for="exampleInputPassword1" class="form-label">Tuition Fee</label>
+                            <input type="text" class="form-control" wire:model.defer="tuition">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 20px; margin-left: 50%;">
+                        @error('tuition') <span style="color: red">{{ $message }}</span> @enderror
+                    </div>
+                    <div class="mb-3" style="width: 47%;">
+                        <select class="form-select" aria-label="Default select example" style="text-align: center" wire:model.defer="modality">
+                            <option selected>Select Modality</option>
+                            <option value="f2f">F2F</option>
+                            <option value="online">Online</option>
+                        </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Tuition Fee</label>
-                        <input type="text" class="form-control" style="width: 48%;" wire:model.defer="tuition">
-                    </div>
+
 
                     <div style="margin-left: 50%;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" wire:click="close">Close</button>

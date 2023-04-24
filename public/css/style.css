@@ -1,20 +1,21 @@
 .adiv {
     width: 50%;
-    height: 60px;
+    height: 75px;
     margin-left: 25%;
-    background-color: white;
-    padding-top: 0.8%;
+    background-color: darkblue;
+    padding-top: 1.2%;
     display: flex;
 }
+
+
 
 body {
     background-color: #B0C4DE;
 }
 
 .select1{
-    width: 20%;
     text-align: center;
-    margin-left: 5%;
+    margin-left: 8%;
 }
 
 .select2{
@@ -36,4 +37,19 @@ body {
     margin-top: 20px;
     text-align: center;
 }
+/*table, th, td {*/
+/*    border: 1px solid;*/
+/*}*/
 
+.number-box {
+    width: 80%;
+    display: inline-block;
+    border: 1px solid black;
+    padding: 2px;
+    text-align: center;
+}
+
+.number {
+    font-size: 18px;
+    font-weight: bold;
+}
