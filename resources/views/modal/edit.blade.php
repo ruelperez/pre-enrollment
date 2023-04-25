@@ -29,7 +29,7 @@
                         <label class="form-label">Semester ID</label>
                         <input type="text" class="form-control" wire:model.defer="semester_id">
                     </div>
-                    <div style="display: flex; margin-bottom: 20px;">
+                    <div style="display: flex;">
                         <div class="mb-3">
                             <label class="form-label">Course Description</label>
                             <input type="text" class="form-control" wire:model.defer="course_name">
@@ -38,6 +38,9 @@
                             <label for="exampleInputPassword1" class="form-label">Code</label>
                             <input type="text" class="form-control" wire:model.defer="code">
                         </div>
+                    </div>
+                    <div style="margin-bottom: 20px; margin-left: 50%;">
+                        @error('code') <span style="color: red">{{ $message }}</span> @enderror
                     </div>
                     <div style="display: flex;">
                         <div class="mb-3">

@@ -6,12 +6,13 @@ use App\Models\Course;
 use App\Models\Semester;
 use App\Models\Subject;
 use App\Models\Yearlevel;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 
 class ShowSubject extends Component
 {
     public $course_id, $year_id, $semester_id, $year_data, $course_data, $semister_data, $form_data, $base=0,
-           $course_name, $code, $unit, $day, $time, $room, $modality, $teacher, $tuition, $editID;
+           $course_name, $code, $unit, $day, $time, $room, $modality, $teacher, $tuition, $editID, $temp_code;
 
     public function render()
     {
@@ -59,7 +60,8 @@ class ShowSubject extends Component
     public function submit_reg(){
         $val = $this->validate([
             'tuition' => 'required|numeric',
-            'unit' => 'required|integer'
+            'unit' => 'required|integer',
+            'code' => ['required', Rule::unique('subjects','subject_code')],
         ]);
 
         try {
@@ -112,10 +114,19 @@ class ShowSubject extends Component
 
     public function sub_edit(){
 
-        $this->validate([
-            'tuition' => 'required|numeric',
-            'unit' => 'required|integer'
-        ]);
+        if ($this->code == $this->temp_code){
+            $this->validate([
+                'tuition' => 'required|numeric',
+                'unit' => 'required|integer',
+            ]);
+        }
+        else{
+            $this->validate([
+                'tuition' => 'required|numeric',
+                'unit' => 'required|integer',
+                'code' => ['required', Rule::unique('subjects','subject_code')],
+            ]);
+        }
 
         try {
             $new = Subject::find($this->editID);
@@ -181,6 +192,7 @@ class ShowSubject extends Component
     public function edit($id){
         $this->editID = $id;
         $sub = Subject::find($id);
+        $this->temp_code = $sub->subject_code;
         $this->course_name = $sub->name;
         $this->code = $sub->subject_code;
         $this->unit = $sub->unit;
