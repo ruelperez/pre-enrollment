@@ -6,11 +6,12 @@ use App\Models\Course;
 use App\Models\Semester;
 use App\Models\Subject;
 use App\Models\Yearlevel;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class SubjectInfo extends Component
 {
-    public $course_id, $year_id, $semester_id, $year_data, $course_data, $semister_data, $form_data = [], $base=0, $l=0,
+    public $course_id, $year_id, $vc=0, $rr=0, $semester_id, $asd = "", $resultss, $year_data, $searchInput="", $course_data, $semister_data, $form_data = [], $base=0, $l=0, $kl=0,
         $course_name, $code, $unit, $day, $time, $room, $modality, $teacher, $tuition, $editID, $rmv, $rs=0, $kurso_id, $modal_data, $sem_id, $subject_id, $level_id, $courseDATA, $yearDATA, $semesterDATA;
 
     public function render()
@@ -21,21 +22,31 @@ class SubjectInfo extends Component
         $this->yearDATA = Yearlevel::all();
         $this->courseDATA = Course::all();
         $this->semesterDATA = Semester::all();
+
+        if ($this->rr == 1){
+            $this->resultss = [];
+            $this->rr = 0;
+        }
+        elseif ($this->searchInput != ""){
+          $this->search();
+        }
+        else{
+            $this->resultss = [];
+        }
         if ($this->rs > 1){
             $this->delForm();
         }
-        elseif ($this->l == 1){
-            $this->l=0;
-        }
-        else{
+        if ($this->vc == 1){
             $this->formData();
         }
-        $this->addSubject_submit();
+
         return view('livewire.subject-info');
     }
 
     public function submit(){
-        $this->rs = null;
+        $this->vc = 1;
+        $this->rs = 0;
+        $this->rr = 0;
         if ($this->year_id == null or $this->course_id == null or $this->semester_id == null){
             return;
         }
@@ -184,6 +195,7 @@ class SubjectInfo extends Component
     }
 
     public function delForm(){
+        $this->vc = 0;
         $get_data = [];
         $finish = [];
         $o=0;
@@ -219,87 +231,9 @@ class SubjectInfo extends Component
 
     }
 
-    public function edit($id){
-        $this->editID = $id;
-        $sub = Subject::find($id);
-        $this->course_name = $sub->name;
-        $this->code = $sub->subject_code;
-        $this->unit = $sub->unit;
-        $this->day = $sub->day;
-        $this->time = $sub->time;
-        $this->room = $sub->room;
-        $this->modality = $sub->modality;
-        $this->teacher = $sub->teacher;
-        $this->tuition = $sub->tuition;
-
-        $this->formData();
-    }
-
-    public function close(){
-        $this->course_name = "";
-        $this->code = "";
-        $this->unit = "";
-        $this->day = "";
-        $this->time = "";
-        $this->room = "";
-        $this->modality = "";
-        $this->teacher = "";
-        $this->tuition = "";
-
-        $this->formData();
-    }
-
-    public function del($id){
-        try {
-            Subject::find($id)->delete();
-            session()->flash('deleted',"Deleted Successfully!!");
-        }
-        catch(\Exception $e){
-            session()->flash('error',"Something goes wrong while deleting!!");
-        }
-
-        $this->formData();
-    }
-
     public function remove($id){
         $this->rmv = $id;
         $this->rs++;
-
-    }
-
-    public function addSubject_submit(){
-
-        $data = [];
-        $sjt_data = [];
-        if ($this->level_id == null or $this->kurso_id == null or $this->sem_id == null){
-            return;
-        }
-
-        $this->validate([
-            'level_id' => 'required',
-            'kurso_id' => 'required',
-            'sem_id' => 'required',
-        ]);
-
-        $subject_data = Subject::all();
-
-        foreach ($subject_data as $sub_data){
-            if ($sub_data->course_id == $this->kurso_id and $sub_data->yearlevel_id == $this->level_id and $sub_data->semester_id == $this->sem_id){
-                $data[] = $sub_data->id;
-            }
-            else{
-                $this->modal_data = "No Data Posted";
-            }
-        }
-        if (isset($data)){
-            for ($i=0; $i<count($data); $i++){
-                $sjt_data[] = Subject::find($data[$i]);
-            }
-            $this->modal_data = $sjt_data;
-        }
-        else{
-            $this->modal_data = "No Data Posted";
-        }
 
     }
 
@@ -307,22 +241,33 @@ class SubjectInfo extends Component
 
     }
 
-    public function adSub(){
-        $this->l = 1;
-        $jj = [];
-        $ht = [];
-        $dt = [];
-        foreach ($this->form_data as $kk){
-            $jj[] = $kk['id'];
+    public function search(){
+        $this->vc = 0;
+        $this->resultss = DB::table('subjects')
+            ->where('subject_code', 'LIKE', '%'.$this->searchInput.'%')
+            ->get();
+
+        foreach ($this->form_data as $form){
+            $frm[] = $form['id'];
         }
-
-        for ($y=0; $y<count($jj); $y++){
-            $ht[] = Subject::find($jj[$y]);
+        $this->form_data = [];
+        for ($i=0; $i<count($frm); $i++){
+            $this->form_data[] = Subject::find($frm[$i]);
         }
+    }
 
-        $ht[] = Subject::find($this->subject_id);
+    public function click_suggest($id){
+        $this->rr = 1;
+        $data = Subject::find($id);
+        $this->asd = $data->id;
+        $this->searchInput = $data->subject_code;
+    }
 
-        $this->form_data = $ht;
+    public function subjectADD($id){
+        $this->kl = 1;
+        $this->searchInput = "";
+        $data = Subject::find($id);
+        $this->form_data[] = $data;
 
     }
 

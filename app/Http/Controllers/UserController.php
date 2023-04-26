@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    //ADMIN
     public function store(Request $request){
 
         $validated = $request->validate([
@@ -58,4 +59,7 @@ class UserController extends Controller
 
         return redirect('/admin/login');
     }
+
+    //STUDENT
+
 }

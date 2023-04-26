@@ -39,8 +39,14 @@ Route::get('/subject-info', function () {
     return view('student.subject-info');
 });
 
+Route::get('/pre-reg', function () {
+    return view('student.pre-reg');
+});
+
+
 Route::post('/admin/logout', [UserController::class, 'logout']);
 Route::post('/admin/store', [UserController::class, 'store']);
-Route::post('/admin/login-process', [UserController::class, 'login']);
+Route::post('/admin/login-process', [\App\Http\Controllers\StudentController::class, 'login']);
+
 
 

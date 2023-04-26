@@ -81,26 +81,27 @@
                     </tr>
                 @else
                     @php $total_tuition = 0; $total_unit = 0; @endphp
-                    @foreach($form_data as $frm_data)
-                        @include('modal.edit')
-                        @include('modal.client_delete')
-                        <tr>
-                            <td>{{$frm_data->subject_code}}</td>
-                            <td>{{$frm_data->name}}</td>
-                            <td>{{$frm_data->unit}}</td>
-                            <td>{{$frm_data->day}}</td>
-                            <td>{{$frm_data->time}}</td>
-                            <td>{{$frm_data->room}}</td>
-                            <td>{{$frm_data->modality}}</td>
-                            <td>{{$frm_data->teacher}}</td>
-                            <td>{{$frm_data->tuition}}</td>
-                            <td style="padding-left: 1px;">
-                                <img src="{{url('/image/delete.png')}}" data-bs-toggle="modal" data-bs-target="#dlt{{$frm_data->id}}"  width="20" height="20" style="cursor: pointer; margin-left: 15px;">
-                            </td>
-                        </tr>
-                        @php $total_tuition += $frm_data->tuition; $total_unit += $frm_data->unit; @endphp
+                    @if(isset($form_data))
+                        @foreach($form_data as $frm_data)
+                            @include('modal.client_delete')
+                            <tr>
+                                <td>{{$frm_data->subject_code}}</td>
+                                <td>{{$frm_data->name}}</td>
+                                <td>{{$frm_data->unit}}</td>
+                                <td>{{$frm_data->day}}</td>
+                                <td>{{$frm_data->time}}</td>
+                                <td>{{$frm_data->room}}</td>
+                                <td>{{$frm_data->modality}}</td>
+                                <td>{{$frm_data->teacher}}</td>
+                                <td>{{$frm_data->tuition}}</td>
+                                <td style="padding-left: 1px;">
+                                    <img src="{{url('/image/delete.png')}}" data-bs-toggle="modal" data-bs-target="#dlt{{$frm_data->id}}"  width="20" height="20" style="cursor: pointer; margin-left: 15px;">
+                                </td>
+                            </tr>
+                            @php $total_tuition += $frm_data->tuition; $total_unit += $frm_data->unit; @endphp
 
-                    @endforeach
+                        @endforeach
+                    @endif
                         <tr>
                             <td></td>
                             <td></td>
