@@ -6,13 +6,13 @@ use App\Models\User;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 
-class StudentLogin extends Component
+class LoginPage extends Component
 {
     public $a=0, $b=0, $usn, $first_name, $last_name, $username, $password, $password_confirmation;
 
     public function render()
     {
-        return view('livewire.student-login');
+        return view('livewire.login-page');
     }
 
     public function btn_old(){
@@ -60,6 +60,14 @@ class StudentLogin extends Component
     }
 
     public function submit_login(){
+        $validated = $this->validate([
+            'username' => 'required',
+            'password' => 'required',
+        ]);
 
+        if(auth()->attempt($validated)){
+            return redirect('/student/home');
+        }
+        return back()->withErrors(['username' => 'login failed']);
     }
 }

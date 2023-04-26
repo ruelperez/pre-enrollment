@@ -25,24 +25,16 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
     });
 });
 
-Route::prefix('student')->middleware(['auth','isStudent'])->group(function (){
+Route::prefix('/student')->middleware(['auth','isStudent'])->group(function (){
     Route::get('/home', function (){
-        return view('student.subject-info');
+        return view('login.subject-info');
     });
 });
 
-Route::get('/admin/login', function () {
-    return view('user.login');
+
+Route::get('/login-page', function () {
+    return view('login.login-page');
 })->name('login')->middleware('guest');
-
-Route::get('/admin/register', function () {
-    return view('user.register');
-});
-
-
-Route::get('/student/login', function () {
-    return view('student.login');
-})->middleware('studentGuest');
 
 
 Route::post('/admin/logout', [UserController::class, 'logout']);

@@ -1,6 +1,6 @@
-<div style="width: 30%; margin-left: 10%;">
+<div style="width: 30%; margin-left: 3%;">
     @include('modal.new_student_reg')
-    <h2 STYLE="color: darkblue; text-align: center;">LOGIN</h2>
+    <h2 STYLE="color: darkblue; text-align: center;">STUDENT LOGIN</h2>
     <button wire:click="btn_old" type="button" class="btn btn-primary" style="width: 80%; margin-left: 10%; margin-top: 10px; background-color: darkblue;">Old Student</button>
     @if($a == 1)
         <div style="margin-top: 15px; margin-left: 29%;">

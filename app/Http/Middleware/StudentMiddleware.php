@@ -20,7 +20,7 @@ class StudentMiddleware
             if (Auth::user()->role == '0'){
                 return $next($request);
             }else{
-                return redirect('/student/login')->with('message','Access Denied as you are not student');
+                return redirect('/login/login')->with('message','Access Denied as you are not login');
             }
 
         }else{
