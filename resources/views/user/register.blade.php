@@ -22,8 +22,15 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1cg" placeholder="Your Full Name" name="name" class="form-control form-control-lg" value={{old('name')}} >
-                                    @error('name')
+                                    <input type="text" id="form3Example1cg" placeholder="First Name" name="first_name" class="form-control form-control-lg" value={{old('first_name')}} >
+                                    @error('first_name')
+                                    <p class="text-red-500 text-xs p-1">{{$message}}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="form3Example1cg" placeholder="Last Name" name="last_name" class="form-control form-control-lg" value={{old('last_name')}} >
+                                    @error('last_name')
                                     <p class="text-red-500 text-xs p-1">{{$message}}</p>
                                     @enderror
                                 </div>

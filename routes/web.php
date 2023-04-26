@@ -23,8 +23,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
     Route::get('/home', function (){
         return view('admin.home');
     });
+});
 
-    //Route::get('/live-result/{porID}', [\App\Http\Controllers\Score_resultController::class, 'getData']);
+Route::prefix('student')->middleware(['auth','isStudent'])->group(function (){
+    Route::get('/home', function (){
+        return view('student.subject-info');
+    });
 });
 
 Route::get('/admin/login', function () {
@@ -35,18 +39,15 @@ Route::get('/admin/register', function () {
     return view('user.register');
 });
 
-Route::get('/subject-info', function () {
-    return view('student.subject-info');
-});
 
-Route::get('/pre-reg', function () {
-    return view('student.pre-reg');
-});
+Route::get('/student/login', function () {
+    return view('student.login');
+})->middleware('studentGuest');
 
 
 Route::post('/admin/logout', [UserController::class, 'logout']);
 Route::post('/admin/store', [UserController::class, 'store']);
-Route::post('/admin/login-process', [\App\Http\Controllers\StudentController::class, 'login']);
+Route::post('/admin/login-process', [UserController::class, 'login']);
 
 
 

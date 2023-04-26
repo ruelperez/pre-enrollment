@@ -13,7 +13,8 @@ class UserController extends Controller
 
         $validated = $request->validate([
             "role" => 'required',
-            "name" => 'required',
+            "first_name" => 'required',
+            "last_name" => 'required',
             "username" =>['required', Rule::unique('users','username')],
             "password" => 'required|confirmed|min:5'
         ]);
