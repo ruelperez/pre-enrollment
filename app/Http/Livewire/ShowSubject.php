@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Course;
 use App\Models\Semester;
+use App\Models\StudentSubject;
 use App\Models\Subject;
 use App\Models\Yearlevel;
 use Illuminate\Validation\Rule;
@@ -219,8 +220,16 @@ class ShowSubject extends Component
     }
 
     public function del($id){
+        $ht = [];
         try {
-           Subject::find($id)->delete();
+            $tg = Subject::find($id)->student_subject;
+            foreach ($tg as $tgs){
+                $ht[] = $tgs->id;
+            }
+            for ($n=0; $n<count($ht); $n++){
+                StudentSubject::find($ht[$n])->delete();
+            }
+            Subject::find($id)->delete();
             session()->flash('deleted',"Deleted Successfully!!");
         }
         catch(\Exception $e){

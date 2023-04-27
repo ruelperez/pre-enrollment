@@ -22,5 +22,9 @@ class Subject extends Model
         'semester_id',
     ];
 
+    public function student_subject(){
+        return $this->hasMany(StudentSubject::class);
+    }
+
     use HasFactory;
 }

@@ -68,6 +68,6 @@ class LoginPage extends Component
         if(auth()->attempt($validated)){
             return redirect('/student/home');
         }
-        return back()->withErrors(['username' => 'login failed']);
+        session()->flash('loginFailed',"Wrong Username/Password");
     }
 }

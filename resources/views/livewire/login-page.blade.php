@@ -9,6 +9,11 @@
         <button type="button" class="btn btn-primary" style="width: 25%; margin-left: 38%; margin-top: 10px;" wire:click="submit_usn">Submit</button>
     @endif
     <button wire:click="btn_new" type="button" class="btn btn-primary" style="width: 80%; margin-left: 10%; margin-top: 30px; background-color: darkblue;">New Student</button>
+    @if(session()->has('loginFailed'))
+        <div class="alert alert-danger" style="width: 60%; padding: 10px; margin-left: 20%; margin-top: 10px; text-align: center;">
+            {{session('loginFailed')}}
+        </div>
+    @endif
     @if($b == 1)
         <div style="margin-left: 10%; width: 80%; text-align: center; margin-top: 15px;">
             <form>

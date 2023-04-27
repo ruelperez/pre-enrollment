@@ -4,18 +4,21 @@ namespace App\Http\Livewire;
 
 use App\Models\Course;
 use App\Models\Semester;
+use App\Models\StudentSubject;
 use App\Models\Subject;
+use App\Models\User;
 use App\Models\Yearlevel;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class SubjectInfo extends Component
 {
-    public $course_id, $year_id, $vc=0, $rr=0, $semester_id, $asd = "", $resultss, $year_data, $searchInput="", $course_data, $semister_data, $form_data = [], $base=0, $l=0, $kl=0,
-        $course_name, $code, $unit, $day, $time, $room, $modality, $teacher, $tuition, $editID, $rmv, $rs=0, $kurso_id, $modal_data, $sem_id, $subject_id, $level_id, $courseDATA, $yearDATA, $semesterDATA;
+    public $course_id, $year_id, $semester_id, $asd = "", $hm, $resultss, $year_data, $searchInput, $course_data, $semister_data, $form_data = [], $base=0, $l=0, $kl=0,
+        $course_name, $ng=0, $rgs=0, $code, $unit, $day, $time, $room, $modality, $teacher, $tuition, $editID, $rmv, $courseDATA, $yearDATA, $semesterDATA, $userID;
 
     public function render()
     {
+        $this->userID = auth()->user()->id;
         $this->course_data = Course::all();
         $this->year_data = Yearlevel::all();
         $this->semister_data = Semester::all();
@@ -23,34 +26,33 @@ class SubjectInfo extends Component
         $this->courseDATA = Course::all();
         $this->semesterDATA = Semester::all();
 
-        if ($this->rr == 1){
-            $this->resultss = [];
-            $this->rr = 0;
+        if ($this->rgs == 1){
+            $this->ng = 0;
+            $this->search();
         }
         elseif ($this->searchInput != ""){
-          $this->search();
+            $this->ng = 1;
+            $this->search();
         }
-        else{
-            $this->resultss = [];
-        }
-        if ($this->rs > 1){
-            $this->delForm();
-        }
-        if ($this->vc == 1){
-            $this->formData();
+        elseif($this->base == 1){
+            $this->studentSubjectData();
+            $this->ng = 0;
         }
 
         return view('livewire.subject-info');
     }
 
     public function submit(){
-        $this->vc = 1;
-        $this->rs = 0;
-        $this->rr = 0;
+        $subData = [];
+        $save_data = [];
+        $datas = [];
+        $rk = [];
+        $gh = 0;
+        $fn = [];
         if ($this->year_id == null or $this->course_id == null or $this->semester_id == null){
             return;
         }
-        $this->base = 1;
+
         $this->validate([
             'year_id' => 'required',
             'course_id' => 'required',
@@ -68,10 +70,63 @@ class SubjectInfo extends Component
             }
         }
         if (isset($data)){
-            for ($i=0; $i<count($data); $i++){
-                $sjt_data[] = Subject::find($data[$i]);
+
+            $stu = StudentSubject::all();
+
+            // check if there is a data in student_subjects table
+            for ($r=0; $r<count($data); $r++){
+                foreach ($stu as $stud){
+                    if ($stud->user_id == $this->userID and $stud->subject_id == $data[$r]){
+                        $gh=1;
+                        $datas[] = $stud->subject_id;
+                    }
+                }
             }
-            $this->form_data = $sjt_data;
+
+            if ($gh == 0){
+                for ($j=0; $j<count($data); $j++){
+                    StudentSubject::create([
+                        'subject_id' => $data[$j],
+                        'user_id' => $this->userID,
+                        'course_id' => $this->course_id,
+                        'semester_id' => $this->semester_id,
+                        'yearlevel_id' => $this->year_id,
+                    ]);
+                }
+
+               $das = StudentSubject::all();
+
+                for ($q=0; $q<count($data); $q++){
+                    foreach ($das as $da){
+                        if ($da->user_id == $this->userID and $da->subject_id == $data[$q] and $da->course_id == $this->course_id and $da->semester_id == $this->semester_id and $da->yearlevel_id == $this->year_id){
+                            $rk[] = $da->subject_id;
+                        }
+                    }
+                }
+                for ($p=0; $p<count($rk); $p++){
+                    $fn[] = Subject::find($rk[$p]);
+                }
+
+                $this->form_data = $fn;
+                $this->base = 1;
+            }
+            elseif($gh == 1){
+                $das = StudentSubject::all();
+                for ($q=0; $q<count($data); $q++){
+                    foreach ($das as $da){
+                        if ($da->user_id == $this->userID and $da->subject_id == $data[$q] and $da->course_id == $this->course_id and $da->semester_id == $this->semester_id and $da->yearlevel_id == $this->year_id){
+                            $rk[] = $da->subject_id;
+                        }
+                    }
+                }
+                for ($p=0; $p<count($rk); $p++){
+                    $fn[] = Subject::find($rk[$p]);
+                }
+
+                $this->form_data = $fn;
+                $this->base = 1;
+            }
+
         }
         else{
             $this->form_data = "No Data Posted";
@@ -242,33 +297,55 @@ class SubjectInfo extends Component
     }
 
     public function search(){
-        $this->vc = 0;
         $this->resultss = DB::table('subjects')
             ->where('subject_code', 'LIKE', '%'.$this->searchInput.'%')
             ->get();
+        if ($this->base == 1){
+            $this->studentSubjectData();
+        }
 
-        foreach ($this->form_data as $form){
-            $frm[] = $form['id'];
+    }
+
+    public function studentSubjectData(){
+        $fn = [];
+        $rk = [];
+
+        $das = StudentSubject::all();
+        foreach ($das as $da){
+            if ($da->user_id == $this->userID and $da->course_id == $this->course_id and $da->semester_id == $this->semester_id and $da->yearlevel_id == $this->year_id){
+                $rk[] = $da->subject_id;
+            }
         }
-        $this->form_data = [];
-        for ($i=0; $i<count($frm); $i++){
-            $this->form_data[] = Subject::find($frm[$i]);
+        for ($p=0; $p<count($rk); $p++){
+            $fn[] = Subject::find($rk[$p]);
         }
+        $this->form_data = $fn;
     }
 
     public function click_suggest($id){
-        $this->rr = 1;
+        $this->hm = $id;
+        $this->rgs = 1;
         $data = Subject::find($id);
-        $this->asd = $data->id;
         $this->searchInput = $data->subject_code;
+        $this->ng = 0;
     }
 
-    public function subjectADD($id){
-        $this->kl = 1;
+    public function subjectADD(){
+        $this->rgs = 0;
         $this->searchInput = "";
-        $data = Subject::find($id);
-        $this->form_data[] = $data;
-
+        try {
+            session()->flash('good',"Added Successfully");
+        }
+        catch (\Exception $e){
+            session()->flash('bad',"Failed to add");
+        }
+        StudentSubject::create([
+            'subject_id' => $this->hm,
+            'user_id' => $this->userID,
+            'course_id' => $this->course_id,
+            'semester_id' => $this->semester_id,
+            'yearlevel_id' => $this->year_id,
+        ]);
     }
 
 }
