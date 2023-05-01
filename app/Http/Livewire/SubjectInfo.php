@@ -62,7 +62,7 @@ class SubjectInfo extends Component
         $subject_data = Subject::all();
 
         foreach ($subject_data as $sub_data){
-            if ($sub_data->course_id == $this->course_id and $sub_data->yearlevel_id == $this->year_id and $sub_data->semester_id == $this->semester_id){
+            if ($sub_data->yearlevel_id == $this->year_id and $sub_data->semester_id == $this->semester_id and $sub_data->course_id == $this->course_id){
                 $data[] = $sub_data->id;
             }
             else{
@@ -76,7 +76,7 @@ class SubjectInfo extends Component
             // check if there is a data in student_subjects table
             for ($r=0; $r<count($data); $r++){
                 foreach ($stu as $stud){
-                    if ($stud->user_id == $this->userID and $stud->subject_id == $data[$r]){
+                    if ($stud->user_id == $this->userID and $stud->subject_id == $data[$r] and $stud->yearlevel_id == $this->year_id and $stud->semester_id == $this->semester_id and $stud->course_id == $this->course_id){
                         $gh=1;
                         $datas[] = $stud->subject_id;
                     }
@@ -287,12 +287,100 @@ class SubjectInfo extends Component
     }
 
     public function remove($id){
-        $this->rmv = $id;
-        $this->rs++;
-
+        $this->base = 1;
+        $this->searchInput = "";
+        $stu = StudentSubject::all();
+        foreach ($stu as $sub){
+            if ($sub->user_id == $this->userID and $sub->subject_id == $id and $sub->yearlevel_id == $this->year_id and $sub->course_id == $this->course_id and $sub->semester_id == $this->semester_id){
+                StudentSubject::find($sub->id)->delete();
+            }
+        }
     }
 
     public function load(){
+        $ma = [];
+        $rk = [];
+        $fn = [];
+        $data = [];
+        $this->rgs = 0;
+        $this->searchInput = "";
+
+        if ($this->year_id == null or $this->course_id == null or $this->semester_id == null){
+            return;
+        }
+
+        $rj = StudentSubject::all();
+        foreach ($rj as $rn){
+            if ($rn->user_id == $this->userID and $rn->semester_id == $this->semester_id and $rn->course_id == $this->course_id and $rn->yearlevel_id == $this->year_id){
+                $ma[] = $rn->id;
+            }
+        }
+
+        if (count($ma) > 0){
+            for ($g=0; $g<count($ma); $g++){
+                StudentSubject::find($ma[$g])->delete();
+            }
+
+            $subject_data = Subject::all();
+
+            foreach ($subject_data as $sub_data){
+                if ($sub_data->yearlevel_id == $this->year_id and $sub_data->semester_id == $this->semester_id and $sub_data->course_id == $this->course_id){
+                    $data[] = $sub_data->id;
+                }
+                else{
+                    $this->form_data = "No Data Posted";
+                }
+            }
+            if (isset($data)){
+
+                $stu = StudentSubject::all();
+
+                for ($j=0; $j<count($data); $j++){
+                    StudentSubject::create([
+                        'subject_id' => $data[$j],
+                        'user_id' => $this->userID,
+                        'course_id' => $this->course_id,
+                        'semester_id' => $this->semester_id,
+                        'yearlevel_id' => $this->year_id,
+                    ]);
+                }
+                $this->base = 1;
+            }
+            else{
+                $this->form_data = "No Data Posted";
+            }
+
+        }
+        else{
+            $subject_data = Subject::all();
+
+            foreach ($subject_data as $sub_data){
+                if ($sub_data->yearlevel_id == $this->year_id and $sub_data->semester_id == $this->semester_id and $sub_data->course_id == $this->course_id){
+                    $data[] = $sub_data->id;
+                }
+                else{
+                    $this->form_data = "No Data Posted";
+                }
+            }
+            if (isset($data)){
+
+                $stu = StudentSubject::all();
+
+                for ($j=0; $j<count($data); $j++){
+                    StudentSubject::create([
+                        'subject_id' => $data[$j],
+                        'user_id' => $this->userID,
+                        'course_id' => $this->course_id,
+                        'semester_id' => $this->semester_id,
+                        'yearlevel_id' => $this->year_id,
+                    ]);
+                }
+                $this->base = 1;
+            }
+            else{
+                $this->form_data = "No Data Posted";
+            }
+        }
 
     }
 
@@ -316,10 +404,16 @@ class SubjectInfo extends Component
                 $rk[] = $da->subject_id;
             }
         }
-        for ($p=0; $p<count($rk); $p++){
-            $fn[] = Subject::find($rk[$p]);
+        if (count($rk) > 0){
+            for ($p=0; $p<count($rk); $p++){
+                $fn[] = Subject::find($rk[$p]);
+            }
+            $this->form_data = $fn;
         }
-        $this->form_data = $fn;
+        else{
+            $this->form_data = "No Data Posted";
+        }
+
     }
 
     public function click_suggest($id){

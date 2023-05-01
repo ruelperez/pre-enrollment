@@ -43,6 +43,7 @@
     </form>
     <div class="button" style="margin-left: 5%;margin-top: 30px;">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSub" style="background-color:darkblue; width: 10%; margin-left: 1px;">Add</button>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" wire:click="load" wire:loading.attr="disabled" style="width: 10%; margin-left: 74%">Reset Subject</button>
     </div>
 
     @if(session()->has('deleted'))
@@ -55,6 +56,9 @@
         </div>
     @endif
     <div class="spinner-border" style="width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status" wire:loading wire:target="loadData">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-border" style="width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status" wire:loading wire:target="load">
         <span class="visually-hidden">Loading...</span>
     </div>
     <div class="divform" wire:loading.remove>
@@ -127,4 +131,5 @@
             </tbody>
         </table>
     </div>
+    <a href="{{url('/student/enrolment-form', ['courseID' => $course_id, 'semesterID' => $semester_id, 'yearlevel' => $year_id])}}" target="_blank" style="cursor: pointer;">Fill out Enrolment form</a>
 </div>

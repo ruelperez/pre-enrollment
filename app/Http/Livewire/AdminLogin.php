@@ -36,11 +36,25 @@ class AdminLogin extends Component
             'password' => 'required|confirmed|min:5',
             'password_confirmation' => 'required'
         ]);
-        $validated['password'] = bcrypt($validated['password']);
-        $user = User::create($validated);
 
-        auth()->login($user);
+        $userData = User::all();
 
-        return redirect('/admin/home');
+        if (count($userData) == 0){
+            $validated['password'] = bcrypt($validated['password']);
+
+            $user = User::create($validated);
+
+            auth()->login($user);
+
+            return redirect('/admin/home');
+        }
+        else{
+            session()->flash('regFailed',"Failed to Register, Only 1 admin user is allowed");
+            $this->first_name = "";
+            $this->last_name = "";
+            $this->username = "";
+            $this->password = "";
+            $this->password_confirmation = "";
+        }
     }
 }

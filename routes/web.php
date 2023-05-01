@@ -29,6 +29,12 @@ Route::prefix('/student')->middleware(['auth','isStudent'])->group(function (){
     Route::get('/home', function (){
         return view('login.subject-info');
     });
+
+    Route::get('/enrolment-form/{courseID}/{semesterID}/{yearID}', function ($courseID,$semesterID,$yearID){
+        return view('user.enrolment-form', ['courseID' => $courseID, 'semesterID' => $semesterID, 'yearID' => $yearID]);
+    });
+
+    Route::get('/form-pdf/{user}/{year}/{course}/{sem}', [\App\Http\Controllers\PdfController::class, 'pdf'])->name('form.pdf');
 });
 
 

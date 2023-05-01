@@ -1,0 +1,11 @@
+p{
+    font-size: 17px;
+}
+table,tr,td{
+    border: solid black 1px;
+    border-bottom: white;
+    text-align: center;
+    padding: 0px;
+}
+
+

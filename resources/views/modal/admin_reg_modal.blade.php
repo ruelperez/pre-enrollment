@@ -6,6 +6,11 @@
                 <h5 class="modal-title" id="insertModalLabel">Admin Registration</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            @if(session()->has('regFailed'))
+                <div class="alert alert-danger" style="width: 60%; padding: 10px; margin-left: 20%; text-align: center;">
+                    {{session('regFailed')}}
+                </div>
+            @endif
             <div class="modal-body">
                 <form wire:submit.prevent="submit_reg_admin" style="width: 60%; margin-left: 20%;">
                     <div class="mb-3">
