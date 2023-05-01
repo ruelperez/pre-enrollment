@@ -62,7 +62,7 @@
         <span class="visually-hidden">Loading...</span>
     </div>
     <div class="divform" wire:loading.remove>
-        <table class="table table-hover">
+        <table class="table table-hover" style="width: 100%;">
             <thead>
             <tr>
                 <th>Code</th>

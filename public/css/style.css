@@ -30,10 +30,11 @@ body {
 
 .divform{
     background-color: white;
-    width: 100%;
+    width: 90%;
     margin-left: 5%;
     margin-top: 20px;
     text-align: center;
+    margin-right: 5%;
 }
 /*table, th, td {*/
 /*    border: 1px solid;*/

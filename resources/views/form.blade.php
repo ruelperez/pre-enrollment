@@ -133,6 +133,9 @@
             @endforeach
         </tbody>
     </table>
+    <p style="margin-left: 36%; font-size: 14px;">
+        TOTAL UNITS = <b style="font-size: 15px">{{$data['total_unit']}}</b>
+    </p>
 </div>
 
 

@@ -35,6 +35,10 @@ class PdfController extends Controller
             for ($i=0; $i<count($ary); $i++){
                 $sub[] = Subject::find($ary[$i]);
             }
+            $h=0;
+            foreach ($sub as $sb){
+                $h += $sb->unit;
+            }
 
             $fill_data = FillUp::find($fill_id);
             $course = Course::find($fill_data->course_id);
@@ -58,6 +62,7 @@ class PdfController extends Controller
                 'birthdate' => $fill_data->birthdate,
                 'birthplace' => $fill_data->birthplace,
                 'sex' => $fill_data->sex,
+                'total_unit' => $h,
             ];
             $pdf = PDF::loadView('form', compact('data', 'sub'))
                 ->setPaper('legal','portrait');
