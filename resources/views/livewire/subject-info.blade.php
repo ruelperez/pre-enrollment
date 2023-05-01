@@ -75,6 +75,7 @@
                 <th>Teacher</th>
                 <th>Tuition fee</th>
                 <th></th>
+            </tr>
             </thead>
 
             <tbody>
@@ -131,5 +132,5 @@
             </tbody>
         </table>
     </div>
-    <a href="{{url('/student/enrolment-form', ['courseID' => $course_id, 'semesterID' => $semester_id, 'yearlevel' => $year_id])}}" target="_blank" style="cursor: pointer;">Fill out Enrolment form</a>
+    <a href="{{url('/student/enrolment-form', ['courseID' => $course_id, 'semesterID' => $semester_id, 'yearlevel' => $year_id])}}" target="_blank" style="cursor: pointer; margin-left: 5%; font-size: 19px;">Fill out Enrolment form</a>
 </div>

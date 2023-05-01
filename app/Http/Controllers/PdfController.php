@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\FillUp;
 use App\Models\Semester;
 use App\Models\StudentSubject;
+use App\Models\Subject;
 use App\Models\Yearlevel;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ use Dompdf\Adapter\PDFLib;
 class PdfController extends Controller
 {
     public function pdf($user_id,$year_id,$course_id,$sem_id){
+        $ary = [];
+        $sub = [];
         $f=0;
         $fill = FillUp::all();
         foreach ($fill as $fil){
@@ -24,11 +27,14 @@ class PdfController extends Controller
         }
         if ($f == 1){
             $st = StudentSubject::all();
-//            foreach ($st as $s){
-//                if ($s->user_id == $user_id and $s->yearlevel_id == $year_id and $s->course_id == $course_id and $s->semester_id == $sem_id){
-//
-//                }
-//            }
+            foreach ($st as $s){
+                if ($s->user_id == $user_id and $s->yearlevel_id == $year_id and $s->course_id == $course_id and $s->semester_id == $sem_id){
+                    $ary[] = $s->subject_id;
+                }
+            }
+            for ($i=0; $i<count($ary); $i++){
+                $sub[] = Subject::find($ary[$i]);
+            }
 
             $fill_data = FillUp::find($fill_id);
             $course = Course::find($fill_data->course_id);
@@ -53,8 +59,9 @@ class PdfController extends Controller
                 'birthplace' => $fill_data->birthplace,
                 'sex' => $fill_data->sex,
             ];
-            $pdf = PDF::loadView('form', compact('data', 'st'))
+            $pdf = PDF::loadView('form', compact('data', 'sub'))
                 ->setPaper('legal','portrait');
+
 //            $pdf->setOptions([
 //                'margin_top' => 1,
 ////                'margin_right' => 10,

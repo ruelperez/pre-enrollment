@@ -11,7 +11,7 @@
 </head>
 <body>
 <div>
-    <table class="tb1" style="width: 100%; border: solid white 1px;">
+    <table style="width: 100%; border: solid white 1px;margin-top: 1px;">
         <tr>
             <td style="border: solid white 1px;">
                 <img src="{{ public_path('image/aclc_logo.png') }}" alt="Example Image" style="width: 52%; height: 75px; margin-left: 40%;">
@@ -25,89 +25,114 @@
     <table style="width: 100%;">
         <tr>
             <td style="width: 40%;">
-                <p>Student No. 1700414450000</p>
+                Student No. 1700414450000
             </td>
             <td style="width: 15%;">
-                <p>Class: <u>{{ucwords($data['class'])}}</u></p>
+                Class: {{ucwords($data['class'])}}
             </td>
             <td style="width: 20%;">
-                <p>Semester: <u>{{$data['sem']}}</u></p>
+                Semester: {{$data['sem']}}
             </td>
             <td style="width: 25%;">
-                <p>School Year: <u>{{$data['start']}}-{{$data['end']}}</u></p>
+                School Year: {{$data['start']}}-{{$data['end']}}
             </td>
         </tr>
     </table>
     <table style="width: 100%;">
         <tr>
             <td style="width: 25%;">
-                <p>Last Name: <u>{{ucwords($data['lname'])}}</u></p>
+               Last Name: {{ucwords($data['lname'])}}
             </td>
             <td style="width: 25%;">
-                <p>First Name: <u>{{ucwords($data['fname'])}}</u></p>
+                First Name: {{ucwords($data['fname'])}}
             </td>
             <td style="width: 25%;">
-                <p>Middle Name: <u>{{ucwords($data['mname'])}}</u></p>
+                Middle Name: {{ucwords($data['mname'])}}
             </td>
             <td style="width: 25%;">
-                <p>Tel No.: <u>{{ucwords($data['contact'])}}</u></p>
+                Tel No.: {{ucwords($data['contact'])}}
             </td>
         </tr>
     </table>
     <table style="width: 100%;">
         <tr>
             <td style="width: 45%;">
-                <p>Address: <u>{{ucwords($data['address'])}}</u></p>
+                Address: {{ucwords($data['address'])}}
             </td>
             <td style="width: 30%;">
-                <p>Guardian: <u>{{ucwords($data['guardian'])}}</u></p>
+                Guardian: {{ucwords($data['guardian'])}}
             </td>
         </tr>
     </table>
     <table style="width: 100%;">
         <tr>
             <td style="width: 50%;">
-                <p>Birthdate: <u>{{ucwords($data['birthdate'])}}</u></p>
+                Birthdate: {{ucwords($data['birthdate'])}}
             </td>
             <td style="width: 50%;">
-                <p>Birthplace: <u>{{ucwords($data['birthplace'])}}</u></p>
+                Birthplace: {{ucwords($data['birthplace'])}}
             </td>
         </tr>
     </table>
-    <table style="width: 100%; border-bottom: solid black 1px;">
+    <table style="width: 100%; border-bottom: solid black 1px; margin-bottom: 15px;">
         <td style="width: 35%;">
-            <p>Sex: <u>{{ucwords($data['sex'])}}</u></p>
+            Sex: {{ucwords($data['sex'])}}
         </td>
         <td style="width: 30%;">
-            <p>Course: <u>{{ucwords($data['course'])}}</u></p>
+            Course: {{ucwords($data['course'])}}
         </td>
         <td style="width: 35%;">
-            <p>Yr.Level: <u>{{ucwords($data['year'])}}</u></p>
+            Yr.Level: {{ucwords($data['year'])}}
         </td>
     </table>
 
-{{--        <div style="display: flex; margin-top: 30px;border: solid black 5px;">--}}
-{{--            <div>--}}
-{{--                <p>STUDENT NO.</p>--}}
-{{--                <div style="display: flex">--}}
-{{--                    <div>--}}
-{{--                        <p>LAST NAME: <b><u>lname</u></b></p>--}}
-{{--                    </div>--}}
-{{--                    <div style="margin-left: 40px;">--}}
-{{--                        <p>FIRST NAME: <b><u>lname</u></b></p>--}}
-{{--                    </div>--}}
-{{--                    <div style="margin-left: 40px;">--}}
-{{--                        <p>M.I: <b><u>mname</u></b></p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+    <table style="width: 100%;">
+        <thead>
+            <th>
+                <tr>
+                    <th>CODE</th>
+                    <th>COURSE DESCRIPTION</th>
+                    <th>SEC</th>
+                    <th>UNIT</th>
+                    <th>DAY</th>
+                    <th>TIME</th>
+                    <th>ROOM</th>
+                    <th colspan="2">FEES</th>
+                </tr>
+            </th>
+        </thead>
 
-{{--                </div>--}}
-{{--                <div>--}}
-{{--                    <p>STUDENT CLASS: <b><u>OLD</u></b></p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+        <tbody style="border-bottom: solid black 1px;">
+            @foreach($sub as $subs)
+                <tr>
+                    <td style="width: 12%">
+                        {{$subs->subject_code}}
+                    </td>
+                    <td style="width: 30%">
+                        {{$subs->name}}
+                    </td>
+                    <td style="width: 6%;">
 
-{{--        </div>--}}
+                    </td>
+                    <td style="width: 6%;">
+                        {{$subs->unit}}
+                    </td>
+                    <td style="width: 10%;">
+                        {{$subs->day}}
+                    </td>
+                    <td style="width: 13%;">
+                        {{$subs->time}}
+                    </td>
+                    <td style="width: 8%;">
+                        {{$subs->room}}
+                    </td>
+                    <td colspan="2" style="width: 6%;">
+
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 
 
