@@ -52,7 +52,9 @@
             .sidenav a {font-size: 18px;}
     </style>
     <title>
+
     </title>
     @livewireStyles
 </head>
 <body>
+

@@ -65,7 +65,7 @@ class PdfController extends Controller
                 'total_unit' => $h,
             ];
             $pdf = PDF::loadView('form', compact('data', 'sub'))
-                ->setPaper('legal','portrait');
+                ->setPaper('letter','portrait');
 
 //            $pdf->setOptions([
 //                'margin_top' => 1,
