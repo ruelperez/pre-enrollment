@@ -3,8 +3,14 @@
     <h2 STYLE="color: darkblue; text-align: center;">STUDENT LOGIN</h2>
     <button wire:click="btn_old" type="button" class="btn btn-primary" style="width: 80%; margin-left: 10%; margin-top: 10px; background-color: darkblue;">Old Student</button>
     @if($a == 1)
+        @if(session()->has('loginError'))
+            <div class="alert alert-danger" style="width: 70%; padding: 10px; margin-left: 15%; font-size: 14px; margin-top: 10px; text-align: center;">
+                {{session('loginError')}}
+            </div>
+        @endif
         <div style="margin-top: 15px; margin-left: 29%;">
             <input type="text" placeholder="USN NO." wire:model="usn">
+            <input type="text" wire:model="usn" hidden>
         </div>
         <button type="button" class="btn btn-primary" style="width: 25%; margin-left: 38%; margin-top: 10px;" wire:click="submit_usn">Submit</button>
     @endif

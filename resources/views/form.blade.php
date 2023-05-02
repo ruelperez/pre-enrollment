@@ -14,8 +14,8 @@
     <table style="width: 100%; border: solid white 1px;margin-top: 1px;">
         <tr>
             <td style="border: solid white 1px;">
-                <img src="{{ public_path('image/aclc_logo.png') }}" alt="Example Image" style="width: 52%; height: 75px; margin-left: 40%;">
-                <h3 style="font-family: 'serif'; margin-left: 20%; margin-top: 20px;"><b>REGISTRATION FORM NO.</b></h3>
+                <img src="{{ public_path('image/aclc_logo.png') }}" alt="Example Image" style="width: 47%; height: 60px; margin-left: 40%;">
+                <h3 style="font-family: 'serif'; margin-left: 20%; margin-top: 10px;"><b>REGISTRATION FORM NO.</b></h3>
             </td>
             <td style="text-align: right; padding-bottom: 20px; border: solid white 1px;">
                 <h4><b>1x1 PICTURE</b> </h4>
@@ -25,7 +25,7 @@
     <table style="width: 100%;">
         <tr>
             <td style="width: 40%;">
-                Student No. 1700414450000
+                Student No. {{$data['student_number']}}
             </td>
             <td style="width: 15%;">
                 Class: {{ucwords($data['class'])}}
@@ -133,9 +133,203 @@
             @endforeach
         </tbody>
     </table>
-    <p style="margin-left: 36%; font-size: 14px;">
-        TOTAL UNITS = <b style="font-size: 15px">{{$data['total_unit']}}</b>
+    <p style="margin-left: 35%; font-size: 13px;">
+        TOTAL UNITS = <b style="font-size: 13px">{{$data['total_unit']}}</b>
     </p>
+
+    <table class="tbl">
+        <tr>
+            <td style="width: 50%;"><b>CHECKED BY: ____________ </b></td>
+            <td style="width: 50%;">TERMS____CASH____INSTALLMENT____PAYMENTS </td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><b>ENROLLMENT APPROVED:</b></td>
+            <td style="width: 50%;">ASSESSED BY/DATE___________________</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right"><b>PAYMENT:</b> UPON ENROLLMENT_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right">PRELIMS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">SCHOOL DIRECTOR _______________</td>
+            <td style="width: 50%;">MIDTERMS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">DATE _______________</td>
+            <td style="width: 50%;">PREFINALS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td COLSPAN="2" style="text-align: right;">FINALS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: left;"><b>STUDENT COPY</b></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right;"><b>STUDENT SIGNATURE ________________</b></td>
+        </tr>
+    </table>
+    <div style="width: 100%; border: solid black 1px; margin-top: 15px;"></div>
+    <table style="width: 100%; border: solid white 1px;margin-top: 1px;">
+        <tr>
+            <td style="border: solid white 1px;">
+                <img src="{{ public_path('image/aclc_logo.png') }}" alt="Example Image" style="width: 47%; height: 60px; margin-left: 40%;">
+                <h3 style="font-family: 'serif'; margin-left: 20%; margin-top: 10px;"><b>REGISTRATION FORM NO.</b></h3>
+            </td>
+            <td style="text-align: right; padding-bottom: 20px; border: solid white 1px;">
+                <h4><b>1x1 PICTURE</b> </h4>
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 40%;">
+                Student No. {{$data['student_number']}}
+            </td>
+            <td style="width: 15%;">
+                Class: {{ucwords($data['class'])}}
+            </td>
+            <td style="width: 20%;">
+                Semester: {{$data['sem']}}
+            </td>
+            <td style="width: 25%;">
+                School Year: {{$data['start']}}-{{$data['end']}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 25%;">
+                Last Name: {{ucwords($data['lname'])}}
+            </td>
+            <td style="width: 25%;">
+                First Name: {{ucwords($data['fname'])}}
+            </td>
+            <td style="width: 25%;">
+                Middle Name: {{ucwords($data['mname'])}}
+            </td>
+            <td style="width: 25%;">
+                Tel No.: {{ucwords($data['contact'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 45%;">
+                Address: {{ucwords($data['address'])}}
+            </td>
+            <td style="width: 30%;">
+                Guardian: {{ucwords($data['guardian'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 50%;">
+                Birthdate: {{ucwords($data['birthdate'])}}
+            </td>
+            <td style="width: 50%;">
+                Birthplace: {{ucwords($data['birthplace'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; border-bottom: solid black 1px; margin-bottom: 15px;">
+        <td style="width: 35%;">
+            Sex: {{ucwords($data['sex'])}}
+        </td>
+        <td style="width: 30%;">
+            Course: {{ucwords($data['course'])}}
+        </td>
+        <td style="width: 35%;">
+            Yr.Level: {{ucwords($data['year'])}}
+        </td>
+    </table>
+
+    <table style="width: 100%;">
+        <thead>
+        <th>
+            <tr>
+                <th>CODE</th>
+                <th>COURSE DESCRIPTION</th>
+                <th>SEC</th>
+                <th>UNIT</th>
+                <th>DAY</th>
+                <th>TIME</th>
+                <th>ROOM</th>
+                <th colspan="2">FEES</th>
+            </tr>
+        </th>
+        </thead>
+
+        <tbody style="border-bottom: solid black 1px;">
+        @foreach($sub as $subs)
+            <tr>
+                <td style="width: 12%">
+                    {{$subs->subject_code}}
+                </td>
+                <td style="width: 30%">
+                    {{$subs->name}}
+                </td>
+                <td style="width: 6%;">
+
+                </td>
+                <td style="width: 6%;">
+                    {{$subs->unit}}
+                </td>
+                <td style="width: 10%;">
+                    {{$subs->day}}
+                </td>
+                <td style="width: 13%;">
+                    {{$subs->time}}
+                </td>
+                <td style="width: 8%;">
+                    {{$subs->room}}
+                </td>
+                <td colspan="2" style="width: 6%;">
+
+                </td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
+    <p style="margin-left: 35%; font-size: 13px;">
+        TOTAL UNITS = <b style="font-size: 13px">{{$data['total_unit']}}</b>
+    </p>
+
+    <table class="tbl">
+        <tr>
+            <td style="width: 50%;"><b>CHECKED BY: ____________ </b></td>
+            <td style="width: 50%;">TERMS____CASH____INSTALLMENT____PAYMENTS </td>
+        </tr>
+        <tr>
+            <td style="width: 50%;"><b>ENROLLMENT APPROVED:</b></td>
+            <td style="width: 50%;">ASSESSED BY/DATE___________________</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right"><b>PAYMENT:</b> UPON ENROLLMENT_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right">PRELIMS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">SCHOOL DIRECTOR _______________</td>
+            <td style="width: 50%;">MIDTERMS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td style="width: 50%;">DATE _______________</td>
+            <td style="width: 50%;">PREFINALS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td COLSPAN="2" style="text-align: right;">FINALS:_________ OR. NO.________ DATE:_________</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: left;"><b>STUDENT COPY</b></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: right;"><b>STUDENT SIGNATURE ________________</b></td>
+        </tr>
+    </table>
 </div>
 
 

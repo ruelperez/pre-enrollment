@@ -18,6 +18,8 @@ class EnrolmentForm extends Component
     public function render()
     {
         $this->user_id = auth()->user()->id;
+        $this->student_number = auth()->user()->usn;
+
         $m=0;
         $rg = [];
         $fill = FillUp::all();
@@ -30,7 +32,6 @@ class EnrolmentForm extends Component
         }
         if ($m == 1){
             $f = FillUp::find($rg[0]);
-            $this->student_number = $f->student_number;
             $this->school_year_start = $f->school_year_start;
             $this->school_year_end = $f->school_year_end;
             $this->fname = $f->first_name;
@@ -148,7 +149,7 @@ class EnrolmentForm extends Component
 
     public function del(){
         FillUp::find($this->ff)->delete();
-        $this->student_number = "";
+        $this->student_number = null;
         $this->school_year_start = "";
         $this->school_year_end = "";
         $this->fname = "";

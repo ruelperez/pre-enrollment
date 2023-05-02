@@ -115,7 +115,7 @@
             </div>
         @elseif($rg == 1)
             <div style="margin-top: 20px;">
-                <button type="button" class="btn btn-success" onclick="window.location='{{ route('form.pdf',['user' => $user_id, 'year' => $year_id, 'course' => $course_id, 'sem' => $semester_id])}}'" style="width: 40%; margin-left: 30%;">Preview Form</button>
+                <button type="button" class="btn btn-success" onclick="window.location='{{ route('form.pdf',['user' => $user_id, 'year' => $year_id, 'course' => $course_id, 'sem' => $semester_id])}}'"  style="width: 40%; margin-left: 30%;">Preview Form</button>
             </div>
         @endif
 

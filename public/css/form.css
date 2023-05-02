@@ -8,12 +8,26 @@ table,td{
 
 td{
     padding-bottom: 7px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 th{
     border: solid black 1px;
-    font-size: 14px;
+    font-size: 10px;
+}
+
+.tbl td{
+    border: solid white 1px;
+    text-align: left;
+    padding: 0px;
+}
+.tbl{
+    width: 100%;
+    border: solid white 1px;
+}
+
+b{
+    font-size: 10px;
 }
 
 
