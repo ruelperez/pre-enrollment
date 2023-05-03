@@ -89,30 +89,6 @@ class ShowSubject extends Component
 
     }
 
-//    public function submit_edit(){
-//
-//        try {
-//            $new = Subject::find($this->editID);
-//            $new->name = $this->course_name;
-//            $new->subject_code = $this->code;
-//            $new->unit = $this->unit;
-//            $new->day = $this->day;
-//            $new->time = $this->time;
-//            $new->room = $this->room;
-//            $new->modality = $this->modality;
-//            $new->teacher = $this->teacher;
-//            $new->tuition = $this->tuition;
-//            $new->course_id = $this->course_id;
-//            $new->yearlevel_id = $this->year_id;
-//            $new->semester_id = $this->semester_id;
-//            $new->save();
-//            session()->flash('dataAdded',"Successfully Updated Data");
-//        }
-//        catch (\Exception $e){
-//            session()->flash('dataError',"Something goes wrong while Editing!!");
-//        }
-//    }
-
     public function sub_edit(){
 
         if ($this->code == $this->temp_code){

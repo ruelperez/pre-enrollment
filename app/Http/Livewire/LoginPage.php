@@ -37,41 +37,43 @@ class LoginPage extends Component
     }
 
     public function submit_usn(){
-        $ff = UsnList::find($this->usn);
-        if ($ff == null){
-            session()->flash('loginError',"Wrong USN, If you don't have USN, you can tap NEW STUDENT button and create new account");
-        }
-        else{
-            $users = DB::table('users')
-                        ->where('usn',$this->usn)
-                        ->get();
+        $un = UsnList::all();
+        foreach ($un as $uns){
+            if ($uns->id == $this->usn){
+                $users = DB::table('users')
+                    ->where('usn',$this->usn)
+                    ->get();
 
-            if (count($users) == 0){
-                $usn = UsnList::find($this->usn);
-                $pass = bcrypt($usn->id);
+                if (count($users) == 0){
+                    $usn = UsnList::find($this->usn);
+                    $pass = bcrypt($usn->id);
 
-                $data = User::create([
-                    "usn" => $this->usn,
-                    "first_name" => $usn->fname,
-                    "last_name" => $usn->lname,
-                    "username" => $usn->id,
-                    "password" => $pass,
-                ]);
+                    $data = User::create([
+                        "usn" => $this->usn,
+                        "first_name" => $usn->fname,
+                        "last_name" => $usn->lname,
+                        "username" => $usn->id,
+                        "password" => $pass,
+                    ]);
 
-                auth()->login($data);
+                    auth()->login($data);
 
-                return redirect('/student/home');
+                    return redirect('/student/home');
 
+                }
+                else{
+                    $log =[
+                        'username' => $this->usn,
+                        'password' => $this->usn,
+                    ];
+
+                    if(auth()->attempt($log)){
+                        return redirect('/student/home');
+                    }
+                }
             }
             else{
-                $log =[
-                'username' => $this->usn,
-                'password' => $this->usn,
-                ];
-
-                if(auth()->attempt($log)){
-                    return redirect('/student/home');
-                }
+                session()->flash('loginError',"Wrong USN, If you don't have USN, you can tap NEW STUDENT button and create new account");
             }
         }
     }

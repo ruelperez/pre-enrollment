@@ -7,12 +7,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             @if(session()->has('regFailed'))
-                <div class="alert alert-danger" style="width: 60%; padding: 10px; margin-left: 20%; text-align: center;">
+                <div class="alert alert-danger regfailed" >
                     {{session('regFailed')}}
                 </div>
             @endif
-            <div class="modal-body">
-                <form wire:submit.prevent="submit_reg_admin" style="width: 60%; margin-left: 20%;">
+            <div class="modal-body div7">
+                <form wire:submit.prevent="submit_reg_admin">
                     <div class="mb-3">
                         <input type="text" class="form-control" wire:model="role" hidden>
                     </div>
@@ -38,15 +38,15 @@
                         <input type="text" class="form-control" placeholder="Password" wire:model="password" required>
                     </div>
                     @error('password')
-                    <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                    <p class="text-red-500 text-xs p-1 errorPass">{{$message}}</p>
                     @enderror
                     <div class="mb-3">
                         <input type="text" class="form-control" placeholder="Repeat Paaword" wire:model="password_confirmation" required>
                     </div>
                     @error('password_confirmation')
-                    <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                    <p class="text-red-500 text-xs p-1 passconfi">{{$message}}</p>
                     @enderror
-                    <button type="submit" class="btn btn-primary" style="width: 70%; margin-left: 15%;" >Submit</button>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
                 </form>
             </div>
         </div>

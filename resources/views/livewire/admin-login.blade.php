@@ -1,6 +1,6 @@
-<div style="width: 30%; margin-left: 3%;">
+<div class="div6">
     @include('modal.admin_reg_modal')
-    <h2 STYLE="color: darkblue; text-align: center;">ADMIN</h2>
+    <h2>ADMIN</h2>
     @if(session()->has('loginFailed'))
         <div class="alert alert-danger" style="width: 60%; padding: 10px; margin-left: 20%; text-align: center;">
             {{session('loginFailed')}}
