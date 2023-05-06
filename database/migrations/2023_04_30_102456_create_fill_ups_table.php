@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('guardian');
             $table->string('contact_number');
-            $table->string('birthdate ');
+            $table->string('birthdate');
             $table->string('birthplace');
             $table->string('sex')->nullable();
             $table->timestamps();
