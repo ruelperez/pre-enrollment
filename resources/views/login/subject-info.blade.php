@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/subject-info.css') }}">
     {{--    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">--}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -58,21 +58,20 @@
 </head>
 <body>
 
-<div class="d-flex">
-    <span style="font-size:30px;cursor:pointer; width: 5%; text-align: center;padding-top: 20px;" onclick="openNav()">&#9776; </span>
-    <div class="container-fluid" style="background-color: white; height: 94px; margin-bottom: 30px;">
-        <h2 style="color: white; margin-left: 38%; margin-top: 15px; position: absolute; font-style: italic"></h2>
-        <img src="{{url('/image/aclc_logo.png')}}" style="width: 25%; height: 80px; margin-left: 33%;">
+<div class="div1">
+    <span class="span1" onclick="openNav()">&#9776; </span>
+    <div class="container-fluid">
+        <img class="logo" src="{{url('/image/aclc_logo.png')}}">
     </div>
 </div>
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <div style=" height: 94px; width: 80%; padding-left: 10px; color: white;">
-        <h5>{{ucwords(auth()->user()->name)}}</h5> <h6>Student #{{auth()->user()->id}}</h6>
+    <div class="div3">
+        <h5>{{ucwords(auth()->user()->first_name)}} {{ucwords(auth()->user()->last_name)}}</h5>
         <form action="/admin/logout" method="POST">
             @csrf
-            <button style="border: none; background-color: black; color:white; padding: 0px;font-size: 13px;">Logout</button>
+            <button class="btnout">Logout</button>
         </form>
     </div>
 
@@ -91,5 +90,6 @@
     }
 
 </script>
+
 
 @include('partial.footer')

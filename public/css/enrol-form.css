@@ -1,0 +1,176 @@
+.enrolmentDiv{
+    width: 90%;
+    margin-left: 5%;
+}
+.clear{
+    margin-left: 65%;
+    margin-top: 20px;
+}
+.div5{
+    margin-top: 25px;
+}
+.div6 {
+    display: flex;
+}
+.div6 b{
+    font-size: 20px;
+}
+.div6 input{
+    width: 30%;
+}
+.fname{
+    margin-top: 25px;
+}
+.div8{
+    margin-top: 25px;
+}
+.div9{
+    margin-top: 25px;
+}
+.address{
+    margin-top: 25px;
+}
+.div11{
+    margin-top: 25px;
+}
+.div12{
+    margin-top: 25px;
+}
+.div13{
+    margin-top: 25px;
+}
+.div14{
+    margin-top: 25px;
+}
+.div15{
+    margin-top: 25px;
+}
+.div16{
+    margin-top: 25px;
+}
+.div17{
+    margin-top: 25px;
+}
+.div18{
+    margin-top: 25px;
+
+}
+.div18 button{
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 50px;
+}
+.div19 button{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+
+@media only screen and (min-width: 740px){
+
+
+}
+
+
+@media only screen and (min-width: 1000px) {
+    .clear{
+        margin-left: 77.5%;margin-top: 25px;
+    }
+    .form1{
+        width: 70%; background-color: #C0C0C0; margin-left: 15%; padding-top: 3%; margin-top: 5px;
+    }
+    .div1{
+        display: flex; margin-left: 13%;
+    }
+    .div2{
+        margin-left: 11%;
+    }
+    .div3{
+        display: flex;
+    }
+    .div4{
+        margin-left: 30%;
+    }
+    .select1{
+        margin-left: 9%;
+        text-align: center;
+    }
+    .div5{
+        margin-left: 6%;
+        margin-top: 4px;
+    }
+    body {
+        font-family: "Lato", sans-serif;
+    }
+    .year{
+        margin-left: 10%;
+    }
+    .div6{
+        display: flex;
+    }
+    .div6 input{
+        width: 25%;
+    }
+    .div5 p{
+        color: red
+    }
+    .div7{
+        display: flex;margin-left: 13%;
+    }
+    .div8{
+        margin-left: 5%;
+    }
+    .div9{
+        margin-left: 5%;
+    }
+    .div10{
+        display: flex;margin-left: 13%;
+    }
+    .div11{
+        margin-left: 5%;
+    }
+    .div12{
+        margin-left: 5%;
+    }
+    .div13{
+        display: flex; margin-bottom: 20px; margin-left: 13%;
+    }
+    .div14{
+        margin-left: 5%;
+        margin-top: 1px;
+    }
+    .div15{
+        margin-left: 3%;
+        margin-top: 1px;
+    }
+    .select11{
+        text-align: center
+    }
+    .div16{
+        margin-left: 3%;
+        margin-top: 1px;
+    }
+    .div16 input{
+        width: 50%;
+    }
+    .div17{
+        margin-left: 13%;
+    }
+    .div17 input{
+        width: 24%;
+    }
+    .div18{
+        margin-top: 20px;
+    }
+    .div18 button{
+        width: 40%; margin-left: 30%;
+    }
+    .div19{
+        margin-top: 20px;
+    }
+    .div19 button{
+        width: 40%; margin-left: 30%;
+    }
+}

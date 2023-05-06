@@ -1,9 +1,242 @@
+.div1{
+    display: flex;
+}
+.span1{
+    font-size:50px;cursor:pointer; width: 15%; text-align: center;padding-top: 20px;
+}
+.delModal{
+    width: 100%; margin-top: 250px;
+}
+.container-fluid{
+    background-color: white; height: 94px; margin-bottom: 30px;
+}
+.logo{
+    width: 40%;
+    margin-left: 20%;
+    margin-top: 15px;
+    margin-bottom: 30px;
+
+}
+.div3{
+    height: 94px; width: 80%; padding-left: 10px; color: white;
+}
+.adiv{
+    margin-left: 32%;
+    width: 100%;
+}
+.select1{
+    margin-bottom: 10px;
+}
+.select2{
+    margin-bottom: 10px;
+}
+.select3{
+    margin-bottom: 15px;
+}
+.btnFind{
+    width: 50%;
+    margin-left: 24%;
+}
+.btnAdd{
+    margin-left: 5%;
+    width: 30%;
+}
+.btnReset{
+    margin-left: 5%;
+}
+.divbtn{
+    margin-top: 50px;
+    width: 100%;
+}
+.sub-info{
+    /*border: solid black 1px;*/
+    width: 100%;
+}
+.selectAbove{
+    text-align: center;
+}
+.enrolBtn{
+    margin-left: 7%;
+    font-size: 20px;
+}
+.spin2 {
+    margin-left: 70%;
+    margin-top: 50px;
+}
+.spin{
+    margin-left: 70%;
+    margin-top: 50px;
+}
+.divform{
+    margin-top: 10px;
+}
+.tbl1{
+    border: solid black 1px;
+}
+td{
+
+}
+.bodyModal{
+    width: 100%;
+}
+.addModal{
+    width: 100%; margin-top: 250px;
+}
+body{
+    background-color: #E6E6FA;
+}
+.div1{
+    width: 168%;
+}
+.container-fluid{
+    height: 110px;
+}
 
 
+@media only screen and (min-width: 768px){
+    /*.div1{*/
+    /*    width: 100%;*/
+    /*}*/
+    /*.logo{*/
+    /*    width: 45%;*/
+    /*}*/
+    /*body{*/
+    /*    background-color: #E6E6FA;*/
+    /*}*/
+    /*.container-fluid{*/
+
+    /*}*/
+    /*.div1{*/
+    /*    width: 132%;*/
+    /*}*/
+}
 
 
+@media only screen and (min-width: 1000px) {
+    .adiv {
+        width: 50%;
+        height: 75px;
+        margin-left: 25%;
+        background-color: darkblue;
+        padding-top: 1.2%;
+        display: flex;
+    }
+    .addModal{
+        margin-top: 50px;
+    }
+    .btnFind{
+        width: 100%;
+        margin-left: 100%;
+    }
+    .addSuggest{
+        width: 30%;
+    }
+    .suggest{
+        width: 59%; margin-left: 20%;
+    }
+    .form3 input{
+        margin-left: 20%; width: 70%
+    }
+    .form3{
+        width: 90%;
+    }
+    .goodAlert{
+        width: 60%; padding: 10px; margin-left: 20%; margin-top: 10px; text-align: center;
+    }
+    .badAlert{
+        width: 60%; padding: 10px; margin-left: 20%; margin-top: 10px; text-align: center;
+    }
+    .delIcon{
+        cursor: pointer; margin-left: 15px;
+    }
+    .enrolBtn{
+        cursor: pointer; margin-left: 5%; font-size: 19px;
+    }
+    .tdDelete{
+        padding-left: 1px;
+    }
+    .tbl1{
+        width: 100%;
+    }
 
+    body {
+        background-color: #E6E6FA;
+    }
 
+    .select1{
+        text-align: center;
+        margin-left: 8%;
+    }
 
+    .select2{
+        margin-left: 11%;
+    }
 
+    .select3{
+        margin-left: 11%;
+    }
 
+    .divform{
+        background-color: white;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 20px;
+        text-align: center;
+        margin-right: 5%;
+    }
+    /*table, th, td {*/
+    /*    border: 1px solid;*/
+    /*}*/
+
+    .number-box {
+        width: 80%;
+        display: inline-block;
+        border: 1px solid black;
+        padding: 2px;
+        text-align: center;
+    }
+
+    .number {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .div1{
+        display: flex;
+    }
+    .span1{
+        font-size:30px;cursor:pointer; width: 5%; text-align: center;padding-top: 20px;
+    }
+    .container-fluid{
+        background-color: white; height: 110px; margin-bottom: 30px;
+    }
+    .btnout{
+        border: none; background-color: black; color:white; padding: 0px;font-size: 13px;
+    }
+    .logo{
+        width: 18%; height: 80px; margin-left: 18%;
+    }
+    .div3{
+        height: 94px; width: 80%; padding-left: 10px; color: white;
+    }
+    .btnAdd{
+        background-color:darkblue; width: 10%; margin-left: 5%;
+    }
+    .button{
+        margin-left: 5%;margin-top: 30px;
+    }
+    .btnReset{
+        width: 10%; margin-left: 69.5%
+    }
+    .delete{
+        width: 70%; margin-left: 15%; text-align: center;
+    }
+    .deleteError{
+        width: 60%;
+    }
+    .spin{
+        width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status
+    }
+    .spin2{
+        width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status
+    }
+}

@@ -1,10 +1,4 @@
-<div> @include('modal.add_subject')
-    {{--    <div style="display: flex;">--}}
-    {{--        <div style="width: 20%; margin-left: 21%;">@error('year') <span style="color: red;>{{ $message }}</span> @enderror</div>--}}
-    {{--        <div style="width: 20%;">@error('semister') <span style="color: red;">{{ $message }}</span> @enderror</div>--}}
-    {{--        <div style="width: 20%;">@error('semister') <span style="color: red;">{{ $message }}</span> @enderror</div>--}}
-    {{--    </div>--}}
-
+<div class="sub-info"> @include('modal.add_subject')
     <form wire:submit.prevent="submit">
         <div class="adiv">
             <div class="select1">
@@ -35,34 +29,34 @@
                 </select>
             </div>
 
-            <div class="button">
-                <button type="submit" class="btn btn-primary" wire:click="loadData" wire:loading.attr="disabled">Find</button>
+            <div>
+                <button type="submit" class="btn btn-primary btnFind" wire:click="loadData" wire:loading.attr="disabled">Find</button>
             </div>
         </div>
 
     </form>
-    <div class="button" style="margin-left: 5%;margin-top: 30px;">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSub" style="background-color:darkblue; width: 10%; margin-left: 1px;">Add</button>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" wire:click="load" wire:loading.attr="disabled" style="width: 10%; margin-left: 74%">Reset Subject</button>
+    <div class="divbtn">
+        <button type="button" class="btn btn-primary btnAdd" data-bs-toggle="modal" data-bs-target="#addSub" >Add</button>
+        <button type="button" class="btn btn-warning btnReset" wire:click="load" wire:loading.attr="disabled">Reset Subject</button>
     </div>
 
     @if(session()->has('deleted'))
-        <div class="alert alert-success" style="width: 70%; margin-left: 15%; text-align: center; ">
+        <div class="alert alert-success delete" >
             {{ session('deleted') }}
         </div>
     @elseif(session()->has('error'))
-        <div class="alert alert-danger" style="width: 60%; ">
+        <div class="alert alert-danger deleteError">
             {{ session('error') }}
         </div>
     @endif
-    <div class="spinner-border" style="width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status" wire:loading wire:target="loadData">
+    <div class="spinner-border spin" wire:loading wire:target="loadData">
         <span class="visually-hidden">Loading...</span>
     </div>
-    <div class="spinner-border" style="width: 3rem; height: 3rem;margin-left: 47%; margin-top: 70px;" role="status" wire:loading wire:target="load">
+    <div class="spinner-border spin2"  wire:loading wire:target="load">
         <span class="visually-hidden">Loading...</span>
     </div>
     <div class="divform" wire:loading.remove>
-        <table class="table table-hover" style="width: 100%;">
+        <table class="table table-hover tbl1">
             <thead>
             <tr>
                 <th>Code</th>
@@ -88,7 +82,7 @@
                     @php $total_tuition = 0; $total_unit = 0; @endphp
                     @if(isset($form_data))
                         @foreach($form_data as $frm_data)
-                            @include('modal.client_delete')
+{{--                            @include('modal.client_delete')--}}
                             <tr>
                                 <td>{{$frm_data->subject_code}}</td>
                                 <td>{{$frm_data->name}}</td>
@@ -99,8 +93,8 @@
                                 <td>{{$frm_data->modality}}</td>
                                 <td>{{$frm_data->teacher}}</td>
                                 <td>{{$frm_data->tuition}}</td>
-                                <td style="padding-left: 1px;">
-                                    <img src="{{url('/image/delete.png')}}" data-bs-toggle="modal" data-bs-target="#dlt{{$frm_data->id}}"  width="20" height="20" style="cursor: pointer; margin-left: 15px;">
+                                <td class="tdDelete">
+                                    <img class="delIcon" src="{{url('/image/delete.png')}}" wire:click="remove({{$frm_data->id}})"  width="27" height="27">
                                 </td>
                             </tr>
                             @php $total_tuition += $frm_data->tuition; $total_unit += $frm_data->unit; @endphp
@@ -125,12 +119,12 @@
                 @endif
             @else
                 <tr>
-                    <td colspan="9">Select Option List Above</td>
+                    <td class="selectAbove" colspan="9">Select Option List Above</td>
                 </tr>
             @endif
 
             </tbody>
         </table>
     </div>
-    <a href="{{url('/student/enrolment-form', ['courseID' => $course_id, 'semesterID' => $semester_id, 'yearlevel' => $year_id])}}" target="_blank" style="cursor: pointer; margin-left: 5%; font-size: 19px;">Fill out Enrolment form</a>
+    <a class="enrolBtn" href="{{url('/student/enrolment-form', ['courseID' => $course_id, 'semesterID' => $semester_id, 'yearlevel' => $year_id])}}" target="_blank" >Fill out Enrolment form</a>
 </div>

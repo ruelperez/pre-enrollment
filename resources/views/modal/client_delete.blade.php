@@ -1,4 +1,4 @@
-<div wire:ignore.self class="modal" tabindex="-1" id="dlt{{$frm_data->id}}">
+<div wire:ignore.self class="modal delModal" tabindex="-1" id="dlt{{$frm_data->id}}">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
