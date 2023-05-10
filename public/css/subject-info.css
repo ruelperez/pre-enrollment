@@ -93,23 +93,23 @@ body{
 }
 
 
-@media only screen and (min-width: 768px){
-    /*.div1{*/
-    /*    width: 100%;*/
-    /*}*/
-    /*.logo{*/
-    /*    width: 45%;*/
-    /*}*/
-    /*body{*/
-    /*    background-color: #E6E6FA;*/
-    /*}*/
-    /*.container-fluid{*/
+/*@media only screen and (min-width: 740px){*/
+/*    .div1{*/
+/*        width: 100%;*/
+/*    }*/
+/*    .logo{*/
+/*        width: 45%;*/
+/*    }*/
+/*    body{*/
+/*        background-color: #E6E6FA;*/
+/*    }*/
+/*    .container-fluid{*/
 
-    /*}*/
-    /*.div1{*/
-    /*    width: 132%;*/
-    /*}*/
-}
+/*    }*/
+/*    .div1{*/
+/*        width: 132%;*/
+/*    }*/
+/*}*/
 
 
 @media only screen and (min-width: 1000px) {
