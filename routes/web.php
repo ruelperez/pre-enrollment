@@ -43,9 +43,16 @@ Route::get('/login-page', function () {
 })->name('login')->middleware('guest');
 
 
+Route::get('/import', 'ImportController@showImportForm')->name('import');
+Route::post('/import', 'ImportController@import')->name('import.post');
+
+
 Route::post('/admin/logout', [UserController::class, 'logout']);
 Route::post('/admin/store', [UserController::class, 'store']);
 Route::post('/admin/login-process', [UserController::class, 'login']);
+//Route::post('admin/import', 'CsvImportController@import')->name('import');
+//Route::post('admin/import'[UserContoller::class, 'import'])
+//Route::post('/admin/import', [CsvImportController::class, 'import']);
 
 
 

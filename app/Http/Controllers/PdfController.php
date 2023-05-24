@@ -67,12 +67,6 @@ class PdfController extends Controller
             $pdf = PDF::loadView('form', compact('data', 'sub'))
                 ->setPaper('letter','portrait');
 
-//            $pdf->setOptions([
-//                'margin_top' => 1,
-////                'margin_right' => 10,
-////                'margin_bottom' => 20,
-////                'margin_left' => 10,
-//            ]);
             return $pdf->stream('load.pdf');
         }
         else{
