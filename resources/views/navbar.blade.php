@@ -28,9 +28,8 @@
 
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-{{--                <li><a href="#">About</a></li>--}}
+                <li><a href="">About</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
-
             </ul>
         </div>
 
@@ -40,17 +39,17 @@
                 <i class='bx bx-sun sun'></i>
             </div>
 
-{{--            <div class="searchBox">--}}
-{{--                <div class="searchToggle">--}}
-{{--                    <i class='bx bx-x cancel'></i>--}}
-{{--                    <i class='bx bx-search search'></i>--}}
-{{--                </div>--}}
+            <div class="searchBox">
+                <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                </div>
 
 {{--                <div class="search-field">--}}
 {{--                    <input type="text" placeholder="Search...">--}}
 {{--                    <i class='bx bx-search'></i>--}}
 {{--                </div>--}}
-{{--            </div>--}}
+            </div>
         </div>
     </div>
 </nav>
@@ -103,21 +102,5 @@
 
 </script>
 
-<div class="d-flex">
-    <span style="font-size:30px;cursor:pointer; width: 5%; text-align: center;padding-top: 20px;" onclick="openNav()">&#9776; </span>
-    <div class="container-fluid" style="background-color: transparent; height: 94px; margin-bottom: 30px;">
-        {{--        <h2 style="color: transparent; margin-left: 38%; margin-top: 15px; position: absolute; font-style: italic"></h2>--}}
-        {{--        <img src="{{url('/image/aclc_logo.png')}}" style="width: 25%; height: 80px; margin-left: 33%;">--}}
-    </div>
-</div>
-
-<div class="welcome-text d-flex justify-content-center align-items-center flex-column" style="text-align: center; color: #001aff;">
-    <img src="{{ asset('image/transparent.png') }}" style="width: 500px; outline-color: #001aff " >
-
-    <h4 style="font-size: 50px;  font-family: 'sans-serif'">ACLC College of Iriga, Inc.</h4>
-    <p style="font-size: 20px; color: transparent"> hidden </p>
-    <p style="font-size: 25px; font-family: 'sans-serif'">is a member of the AMA Education System and is one of the leading computer schools in the country.</p>
-
-</div>
 </body>
 </html>

@@ -9,7 +9,7 @@
     <div style="margin-left: 10%; width: 80%; text-align: center; margin-top: 15px;">
         <form>
             <input type="text" placeholder="Username" style="margin-bottom: 10px;" wire:model="username" required>
-            <input type="text" placeholder="Password" style="margin-bottom: 10px;" wire:model="password" required>
+            <input type="password" placeholder="Password" style="margin-bottom: 10px;" wire:model="password" required>
             <button wire:click="submit_login" type="button" class="btn btn-primary" style="width: 77%;">Login</button>
         </form>
         <p class="text-center mt-3 mb-0">Do not have an account? <b><u style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#adminReg_modal" >Register here</u></b></p>

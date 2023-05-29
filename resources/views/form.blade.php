@@ -21,66 +21,66 @@
             </td>
         </tr>
     </table>
-    <table style="width: 100%; margin-top: 25px;">
+    <table style="width: 100%; margin-top: 10px;">
         <tr>
-            <td style="width: 40%;">
+            <td style="width: 40%; text-align: left; ">
                 Student No. {{$data['student_number']}}
             </td>
-            <td style="width: 15%;">
+            <td style="width: 15%; text-align: left;">
                 Class: {{ucwords($data['class'])}}
             </td>
-            <td style="width: 20%;">
+            <td style="width: 20%; text-align: left;">
                 Semester: {{$data['sem']}}
             </td>
-            <td style="width: 25%;">
+            <td style="width: 25%; text-align: left;">
                 School Year: {{$data['start']}}-{{$data['end']}}
             </td>
         </tr>
     </table>
     <table style="width: 100%;">
         <tr>
-            <td style="width: 25%;">
+            <td style="width: 25%; text-align: left;">
                Last Name: {{ucwords($data['lname'])}}
             </td>
-            <td style="width: 25%;">
+            <td style="width: 25%; text-align: left;">
                 First Name: {{ucwords($data['fname'])}}
             </td>
-            <td style="width: 25%;">
+            <td style="width: 25%; text-align: left;">
                 Middle Name: {{ucwords($data['mname'])}}
             </td>
-            <td style="width: 25%;">
+            <td style="width: 25%; text-align: left;">
                 Tel No.: {{ucwords($data['contact'])}}
             </td>
         </tr>
     </table>
     <table style="width: 100%;">
         <tr>
-            <td style="width: 45%;">
+            <td style="width: 45%; text-align: left;">
                 Address: {{ucwords($data['address'])}}
             </td>
-            <td style="width: 30%;">
+            <td style="width: 30%; text-align: left;">
                 Guardian: {{ucwords($data['guardian'])}}
             </td>
         </tr>
     </table>
     <table style="width: 100%;">
         <tr>
-            <td style="width: 50%;">
+            <td style="width: 50%; text-align: left;">
                 Birthdate: {{ucwords($data['birthdate'])}}
             </td>
-            <td style="width: 50%;">
+            <td style="width: 50%; text-align: left;">
                 Birthplace: {{ucwords($data['birthplace'])}}
             </td>
         </tr>
     </table>
     <table style="width: 100%; border-bottom: solid black 1px; margin-bottom: 15px;">
-        <td style="width: 35%;">
+        <td style="width: 35%; text-align: left;">
             Sex: {{ucwords($data['sex'])}}
         </td>
-        <td style="width: 30%;">
+        <td style="width: 30%; text-align: left;">
             Course: {{ucwords($data['course'])}}
         </td>
-        <td style="width: 35%;">
+        <td style="width: 35%; text-align: left;">
             Yr.Level: {{ucwords($data['year'])}}
         </td>
     </table>
@@ -696,8 +696,6 @@
 
 </body>
 
-<body>
 
-</body>
 </html>
 
