@@ -63,6 +63,27 @@ class PdfController extends Controller
                 'birthplace' => $fill_data->birthplace,
                 'sex' => $fill_data->sex,
                 'total_unit' => $h,
+
+                'fullname' =>  $fill_data->fullname,
+                'age' =>  $fill_data->age,
+                'status' =>  $fill_data->status,
+                'height'=>  $fill_data->height,
+                'weight'=>  $fill_data->weight,
+                'citizen'=> $fill_data->citizen,
+                'father'=>  $fill_data->father,
+                'father_occupation'=>  $fill_data->father_occupation,
+                'father_age'=>  $fill_data->father_age,
+                'mother'=>  $fill_data->mother,
+                'mother_occupation'=>  $fill_data->mother_occupation,
+                'mother_age'=>  $fill_data->mother_age,
+                'provincial_address'=> $fill_data->provincial_address,
+                'city_address'=> $fill_data->city_address,
+                'parent_contact'=>  $fill_data->parent_contact,
+                'guardian_address'=>  $fill_data->guardian_address,
+                'guardian_contact'=>  $fill_data->guardian_contact,
+                'personToContact'=>  $fill_data->personToContact,
+                'emergency_address' =>  $fill_data->emergency_address,
+                'emergency_contact'=>  $fill_data->emergency_contact,
             ];
             $pdf = PDF::loadView('form', compact('data', 'sub'))
                 ->setPaper('letter','portrait');

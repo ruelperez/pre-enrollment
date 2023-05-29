@@ -109,6 +109,212 @@
             <label class="form-label">Year Level</label>
             <input type="text" class="form-control" wire:model="yearlevel">
         </div>
+
+
+
+
+
+
+        <div class="div30"></div>
+
+
+
+
+        <h3 class="biodata">BIO DATA</h3>
+
+        <div class="div51">
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" wire:model="fullname" required>
+                @error('fullname')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-3 az">
+                <label class="form-label">Tel No.</label>
+                <input type="text" class="form-control" wire:model="contact">
+                @error('contact')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-3 bz">
+                <label class="form-label">Age</label>
+                <input type="text" class="form-control" wire:model="age" required>
+                @error('age')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div60">
+                <label class="form-label">Sex</label>
+                <select class="form-select select11" aria-label="Default select example" wire:model="sex" required>
+                    <option selected>Sex</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3 dz">
+                <label class="form-label">Status</label>
+                <input type="text" class="form-control" wire:model="status" required>
+                @error('status')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="div71">
+            <div class="mb-3 div72" >
+                <label class="form-label">Height</label>
+                <input type="text" class="form-control" wire:model="height" required>
+                @error('height')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-3 div73">
+                <label class="form-label">Weight</label>
+                <input type="text" class="form-control" wire:model="weight" required>
+                @error('weight')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-3 div74">
+                <label class="form-label">Citizenship</label>
+                <input type="text" class="form-control" wire:model="citizen" required>
+                @error('citizen')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-3 div76" >
+                <label class="form-label">Birthday</label>
+                <input type="text" class="form-control" wire:model="birthdate">
+                @error('birthday')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="div75">
+            <div class="mb-3 div77">
+                <label class="form-label">Place</label>
+                <input type="text" class="form-control" wire:model="address">
+                @error('address')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="div78">
+            <div class="div79">
+                <label class="form-label">Name of Father</label>
+                <input type="text" class="form-control" wire:model="father" required>
+                @error('father')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div81">
+                <label class="form-label">Occupation</label>
+                <input type="text" class="form-control" wire:model="father_occupation" required>
+                @error('father_occupation')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div80">
+                <label class="form-label">Age</label>
+                <input type="text" class="form-control" wire:model="father_age" required>
+                @error('father_age')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+
+        <div class="div78">
+            <div class="div79">
+                <label class="form-label">Name of Mother</label>
+                <input type="text" class="form-control" wire:model="mother" required>
+                @error('mother')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div81">
+                <label class="form-label">Occupation</label>
+                <input type="text" class="form-control" wire:model="mother_occupation" required>
+                @error('mother_occupation')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div80">
+                <label class="form-label">Age</label>
+                <input type="text" class="form-control" wire:model="mother_age" required>
+                @error('mother_age')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+
+        <div class="div82">
+            <div class="div83">
+                <label class="form-label">Provincial Address</label>
+                <input type="text" class="form-control" wire:model="provincial_address" required>
+                @error('provincial_address')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div84">
+                <label class="form-label">City Address</label>
+                <input type="text" class="form-control" wire:model="city_address" required>
+                @error('city_address')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div85">
+                <label class="form-label">Tel NO.</label>
+                <input type="text" class="form-control" wire:model="parent_contact" required>
+                @error('parent_contact')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+
+        <div class="div82">
+            <div class="div83">
+                <label class="form-label">Name of Guardian</label>
+                <input type="text" class="form-control" wire:model="guardian">
+                @error('provincial_address')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div84">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" wire:model="guardian_address" required>
+                @error('guardian_address')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div85">
+                <label class="form-label">Tel NO.</label>
+                <input type="text" class="form-control" wire:model="guardian_contact" required>
+                @error('guardian_contact')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+        <div class="div86">
+            <h6>Person To Contact In Case of Emergency:</h6>
+            <input type="text" class="form-control input50" wire:model="personToContact" required>
+        </div>
+        <div class="div87">
+            <div class="div88">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" wire:model="emergency_address" required>
+                @error('emergency_address')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+            <div class="div89">
+                <label class="form-label">Tel NO.</label>
+                <input type="text" class="form-control" wire:model="emergency_contact" required>
+                @error('emergency_contact')
+                <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
+                @enderror
+            </div>
+        </div>
+
         @if($rg == 0)
             <div class="div18">
                 <button type="submit" class="btn btn-primary">Validate</button>

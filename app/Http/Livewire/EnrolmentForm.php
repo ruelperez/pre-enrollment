@@ -12,7 +12,7 @@ use Barryvdh\DomPDF\PDF;
 
 class EnrolmentForm extends Component
 {
-    public $student_number, $rg=0, $ff, $course_id, $year_id, $semester_id, $student_class_old, $student_class_new, $semester, $school_year_start, $school_year_end, $fname, $lname, $mname, $address,
+    public $student_number, $personToContact, $emergency_contact, $guardian_contact, $emergency_address, $ersonToContact, $rg=0, $guardian_address, $parent_contact, $city_address, $provincial_address, $ff, $age, $mother_occupation, $mother_age, $mother, $father_age, $father_occupation, $father, $birthday, $status, $height, $weight, $citizen, $fullname, $course_id, $year_id, $semester_id, $student_class_old, $student_class_new, $semester, $school_year_start, $school_year_end, $fname, $lname, $mname, $address,
             $guardian, $user_id, $contact, $da=0, $birthdate, $birthplace, $sex, $course, $yearlevel, $student_class;
 
     public function render()
@@ -44,6 +44,27 @@ class EnrolmentForm extends Component
             $this->birthplace = $f->birthplace;
             $this->sex = "$f->sex";
             $this->student_class = $f->student_class;
+
+             $this->fullname= $f->fullname;
+              $this->age= $f->age;
+              $this->status= $f->status;
+              $this->height= $f->height;
+              $this->weight= $f->weight;
+              $this->citizen= $f->citizen;
+             $this->father=  $f->father;
+             $this->father_occupation=  $f->father_occupation;
+             $this->father_age= $f->father_age;
+             $this->mother=  $f->mother;
+              $this->mother_occupation= $f->mother_occupation;
+              $this->mother_age= $f->mother_age;
+              $this->provincial_address= $f->provincial_address;
+              $this->city_address= $f->city_address;
+             $this->parent_contact= $f->parent_contact;
+             $this->guardian_address=  $f->guardian_address;
+              $this->guardian_contact= $f->guardian_contact;
+             $this->personToContact= $f->personToContact;
+              $this->emergency_contact= $f->emergency_contact;
+             $this->emergency_address =  $f->emergency_address;
             $this->da = 1;
         }
 
@@ -116,6 +137,26 @@ class EnrolmentForm extends Component
                 'birthdate' => $this->birthdate,
                 'birthplace' => $this->birthplace,
                 'sex' => $this->sex,
+                'fullname' => $this->fullname,
+                'age' => $this->age,
+                'status' => $this->status,
+                'height'=> $this->height,
+                'weight'=> $this->weight,
+                'citizen'=> $this->citizen,
+                'father'=> $this->father,
+                'father_occupation'=> $this->father_occupation,
+                'father_age'=> $this->father_age,
+                'mother'=> $this->mother,
+                'mother_occupation'=> $this->mother_occupation,
+                'mother_age'=> $this->mother_age,
+                'provincial_address'=>$this->provincial_address,
+                'city_address'=>$this->city_address,
+                'parent_contact'=> $this->parent_contact,
+                'guardian_address'=> $this->guardian_address,
+                'guardian_contact'=> $this->guardian_contact,
+                'personToContact'=> $this->personToContact,
+                'emergency_address' => $this->emergency_address,
+                'emergency_contact'=> $this->emergency_contact,
             ]);
 
             $this->rg = 1;
@@ -138,6 +179,26 @@ class EnrolmentForm extends Component
             $f->birthplace = $this->birthplace;
             $f->sex = $this->sex;
             $f->student_class = $this->student_class;
+            $f->fullname = $this->fullname;
+            $f->age = $this->age;
+            $f->status = $this->status;
+            $f->height = $this->height;
+            $f->weight = $this->weight;
+            $f->citizen = $this->citizen;
+            $f->father = $this->father;
+            $f->father_occupation = $this->father_occupation;
+            $f->father_age= $this->father_age;
+            $f->mother = $this->mother;
+            $f->mother_occupation = $this->mother_occupation;
+            $f->mother_age = $this->mother_age;
+            $f->provincial_address = $this->provincial_address;
+            $f->city_address = $this->city_address;
+            $f->parent_contact = $this->parent_contact;
+            $f->guardian_address = $this->guardian_address;
+            $f->guardian_contact = $this->guardian_contact;
+            $f->personToContact = $this->personToContact;
+            $f->emergency_contact = $this->emergency_contact;
+            $f->emergency_address = $this->emergency_address;
             $f->save();
 
             $this->rg=1;

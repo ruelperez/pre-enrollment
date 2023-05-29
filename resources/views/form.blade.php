@@ -174,6 +174,131 @@
 
 
 
+
+
+
+<div style="margin-top: 30%">
+    <h2 style="margin-left: 42%">BIO-DATA</h2>
+    <table style="width: 100%; margin-top: 25px; padding: 2%;">
+        <tr>
+            <td style="width: 40%;border: solid white 1px; text-align: left; font-size: 15px">
+                Name of Student: {{$data['fullname']}}
+            </td>
+            <td style="width: 20%;border: solid white 1px; text-align: left; font-size: 15px">
+                Tel No. {{ucwords($data['contact'])}}
+            </td>
+            <td style="width: 20%;border: solid white 1px; text-align: left; font-size: 15px">
+                Age: {{$data['age']}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">
+                Sex: {{$data['sex']}}
+            </td>
+            <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">
+                Height: {{ucwords($data['height'])}}
+            </td>
+            <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">
+                Weight: {{ucwords($data['weight'])}}
+            </td>
+            <td style="width: 30%;text-align: right;border: solid white 1px; font-size: 15px">
+                Citizenship: {{ucwords($data['citizen'])}}
+            </td>
+
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 50%;text-align: left;border: solid white 1px; font-size: 15px">
+                Place: {{ucwords($data['address'])}}
+            </td>
+            <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
+                Birthday: {{ucwords($data['birthdate'])}}
+            </td>
+            <td style="width: 25%;text-align: right;border: solid white 1px;font-size: 15px">
+                Status {{ucwords($data['status'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 45%;text-align: left;border: solid white 1px; font-size: 15px">
+                Father's Name: {{ucwords($data['father'])}}
+            </td>
+            <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">
+                Occupation: {{ucwords($data['father_occupation'])}}
+            </td>
+            <td style="width: 10%;text-align: left;border: solid white 1px; font-size: 15px">
+               Age: {{ucwords($data['father_age'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 45%;text-align: left;border: solid white 1px; font-size: 15px">
+                Mother's Name: {{ucwords($data['mother'])}}
+            </td>
+            <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">
+                Occupation: {{ucwords($data['mother_occupation'])}}
+            </td>
+            <td style="width: 10%;text-align: left;border: solid white 1px; font-size: 15px">
+                Age: {{ucwords($data['mother_age'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 45%;text-align: left;border: solid white 1px; font-size: 15px">
+                Provincial Address: {{ucwords($data['provincial_address'])}}
+            </td>
+            <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
+                City Address: {{ucwords($data['city_address'])}}
+            </td>
+            <td style="width: 25%;text-align: right;border: solid white 1px; font-size: 15px">
+                Telephone: {{ucwords($data['parent_contact'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 40%;text-align: left;border: solid white 1px; font-size: 15px">
+               Guardian: {{ucwords($data['guardian'])}}
+            </td>
+            <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">
+                Address: {{ucwords($data['guardian_address'])}}
+            </td>
+            <td style="width: 25%;text-align: right;border: solid white 1px; font-size: 15px">
+                Tel. No.: {{ucwords($data['guardian_contact'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 70%;text-align: left;border: solid white 1px; font-size: 15px">
+                Person to Contact In Case of Emergency: {{ucwords($data['personToContact'])}}
+            </td>
+            <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
+                Tel. No.: {{ucwords($data['emergency_contact'])}}
+            </td>
+        </tr>
+    </table>
+    <table style="width: 100%; margin-top: 2%;">
+        <tr>
+            <td style="width: 100%;text-align: left;border: solid white 1px; font-size: 15px">
+                Address: {{ucwords($data['emergency_address'])}}
+            </td>
+        </tr>
+    </table>
+
+    <div style="width: 23%; border: solid black 1px; margin-left: 75%; margin-top: 15%;"></div>
+    <h6 style="margin-left: 80%; margin-top: 1%">Signature</h6>
+
+</div>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
