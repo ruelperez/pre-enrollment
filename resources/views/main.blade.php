@@ -2,6 +2,5 @@
 
 
 
-
-
 @include('partial.footer')
+

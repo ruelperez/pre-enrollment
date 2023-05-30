@@ -11,6 +11,8 @@
     <title>
 
     </title>
+
+
     @livewireStyles
 </head>
 <body>
@@ -18,7 +20,7 @@
         <div class="div2">
             <img class="logo" src="{{url('/image/aclc_logo.png')}}">
         </div>
-
+        @include('navbar')
         @livewire('login-page')
         @livewire('admin-login')
     </div>

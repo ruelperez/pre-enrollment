@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ public/kiosk/login-page [L]
+    RewriteRule ^((?!public/kiosk/login-page).*)$ public/kiosk/$1 [L,NC]
+</IfModule>
