@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{{ asset('css/enrol-form.css') }}">
     {{--    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">--}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    <link rel="icon" href="{{ asset('image/icon.jpg') }}">
+    <title>ÀPES - Enrollment FOrm</title>
     <title>
 
     </title>

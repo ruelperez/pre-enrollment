@@ -11,14 +11,14 @@
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="icon" href="{{ asset('image/icon.jpg') }}">
     <title>ÀCLC Pre-enrollment system</title>
 </head>
 <body class="body-home">
 <nav>
     <div class="nav-bar">
         <i class='bx bx-menu sidebarOpen' ></i>
-        <span class="logo navLogo"><a href="https://www.facebook.com/ACLCCollegeIRIGA">  <img src="{{ asset('image/aclc_logo.png') }}" style="width: 200px" > </a></span>
+        <span class="logo navLogo"><a href="https://www.facebook.com/ACLCCollegeIRIGA">  <img src="" style="width: 80px" > </a></span>
 
         <div class="menu">
             <div class="logo-toggle">
@@ -39,10 +39,10 @@
                 <i class='bx bx-sun sun'></i>
             </div>
 
-            <div class="searchBox">
-                <div class="searchToggle">
-                    <i class='bx bx-x cancel'></i>
-                    <i class='bx bx-search search'></i>
+            <div class="">
+                <div class="">
+                    <i class=''></i>
+                    <i class=''></i>
                 </div>
 
 {{--                <div class="search-field">--}}

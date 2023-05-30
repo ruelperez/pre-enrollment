@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {{--    <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">--}}
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <style>
         body {
             font-family: "Lato", sans-serif;
