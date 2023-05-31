@@ -37,9 +37,16 @@ class AdminLogin extends Component
             'password_confirmation' => 'required'
         ]);
 
+        $mf=0;
         $userData = User::all();
 
-        if (count($userData) == 0){
+        foreach ($userData as $userD){
+            if ($userD->role == 1){
+                $mf++;
+            }
+        }
+
+        if ($mf == 0){
             $validated['password'] = bcrypt($validated['password']);
 
             $user = User::create($validated);

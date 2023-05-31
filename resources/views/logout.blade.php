@@ -26,8 +26,9 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="{{url('/admin/home')}}">Home</a></li>
+                <li><a href="{{url('/admin/about')}}">About</a></li>
+                <li><a href="{{url('/admin/new-student')}}">New Student Info</a></li>
                 <form action="/admin/logout" method="POST">
                     @csrf
                     <button style="border: none; background-color: transparent; color:white; padding: 0px;font-size: 18px;">Logout</button>

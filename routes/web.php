@@ -23,6 +23,12 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
     Route::get('/home', function (){
         return view('admin.home');
     });
+    Route::get('/new-student', function (){
+        return view('admin.new-student');
+    });
+    Route::get('/about', function (){
+        return view('admin.about');
+    });
 });
 
 Route::prefix('/student')->middleware(['auth','isStudent'])->group(function (){

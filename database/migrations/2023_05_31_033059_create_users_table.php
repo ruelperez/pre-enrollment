@@ -16,6 +16,7 @@ return new class extends Migration
             $table->bigInteger('usn')->nullable();
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('last_school')->nullable();
             $table->string('username')->unique();
             $table->string('password')->unique();
             $table->string('role')->default('0');
