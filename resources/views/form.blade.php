@@ -627,7 +627,7 @@
                 </td>
                 <td style="width: 10%; font-size: 11px;">
                     {{$subs->day}}
-                </td>
+io                </td>
                 <td style="width: 13%; font-size: 11px;">
                     {{$subs->time}}
                 </td>
@@ -752,112 +752,176 @@
 <table style="width: 100%; margin-top: 25px; padding: 2%;">
     <tr>
         <td style="width: 40%;border: solid white 1px; text-align: left; font-size: 15px">
-            Name of Student: <u>{{$data['fullname']}}</u>
+            Name of Student: <u>{{$data['fullname']}}</u>_______________
+            TEL. NO. <u> {{ucwords($data['contact'])}}</u>______
         </td>
-        <td style="width: 20%;border: solid white 1px; text-align: left; font-size: 15px">
-            Tel No.<u> {{ucwords($data['contact'])}}</u>
-        </td>
-        <td style="width: 20%;border: solid white 1px; text-align: left; font-size: 15px">
-            Age: <u>{{$data['age']}}</u>
-        </td>
+{{--        <td style="width: 20%;border: solid white 1px; text-align: left; font-size: 15px; margin-left: 18%">--}}
+{{--            Tel No.<u> {{ucwords($data['contact'])}}</u>--}}
+{{--        </td>--}}
+
     </tr>
 </table>
 <table style="width: 100%;">
     <tr>
+        <td style="margin-left: 2%;width: 20%;border: solid white 1px; text-align: left; font-size: 15px">
+            Age: ________<u>{{$data['age']}}</u>________
+            Sex: ________<u>{{$data['sex']}}</u>________
+            Status: ________<u>{{ucwords($data['status'])}}</u>________
+        </td>
+{{--        <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Sex: <u>{{$data['sex']}}</u>--}}
+{{--        </td>--}}
+{{--        <td style="width: 25%;text-align:left; margin-left 15px; border: solid white 1px;font-size: 15px">--}}
+{{--            Status <u>{{ucwords($data['status'])}}</u>--}}
+{{--        </td>--}}
+
+       </tr>
+</table>
+
+<table style="width: 100%;">
+    <tr>
         <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">
-            Sex: <u>{{$data['sex']}}</u>
+            Height: _______<u>{{ucwords($data['height'])}}</u>_______
+            Weight: _______<u>{{ucwords($data['weight'])}}</u>_______
+            Citizenship: ______<u>{{ucwords($data['citizen'])}}</u>______
         </td>
-        <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">
-            Height: <u>{{ucwords($data['height'])}}</u>
-        </td>
-        <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">
-            Weight: <u>{{ucwords($data['weight'])}}</u>
-        </td>
-        <td style="width: 30%;text-align: right;border: solid white 1px; font-size: 15px">
-            Citizenship: <u>{{ucwords($data['citizen'])}}</u>
-        </td>
+{{--        <td style="width: 23%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Weight: __________<u>{{ucwords($data['weight'])}}</u>__________--}}
+{{--        </td>--}}
+{{--        <td style="width: 30%;text-align: right;border: solid white 1px; font-size: 15px">--}}
+{{--            Citizenship: __________<u>{{ucwords($data['citizen'])}}</u>__________--}}
+{{--        </td>--}}
 
     </tr>
 </table>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 50%;text-align: left;border: solid white 1px; font-size: 15px">
-            Place: <u>{{ucwords($data['address'])}}</u>
+            Birthday: _______<u>{{ucwords($data['birthdate'])}}</u>_______
+            Place: ______<u>{{ucwords($data['birthplace'])}}</u>______
         </td>
-        <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
-            Birthday: <u>{{ucwords($data['birthdate'])}}</u>
-        </td>
-        <td style="width: 25%;text-align: right;border: solid white 1px;font-size: 15px">
-            Status <u>{{ucwords($data['status'])}}</u>
-        </td>
+{{--        <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Birthday: <u>{{ucwords($data['birthdate'])}}</u>--}}
+{{--        </td>--}}
+
     </tr>
 </table>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 45%;text-align: left;border: solid white 1px; font-size: 15px">
-            Father's Name: <u>{{ucwords($data['father'])}}</u>
+            Father's Name: _<u>{{ucwords($data['father'])}}</u>__________
+{{--            Occupation: _<u>{{ucwords($data['father_occupation'])}}</u>_--}}
+            Age: __________<u>{{ucwords($data['father_age'])}}</u>__________
         </td>
+{{--        <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Occupation: <u>{{ucwords($data['father_occupation'])}}</u>--}}
+{{--        </td>--}}
+{{--        <td style="width: 10%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Age: <u>{{ucwords($data['father_age'])}}</u>--}}
+{{--        </td>--}}
+    </tr>
+</table>
+
+<table style="width: 100%; margin-top: 2%;">
+    <tr>
         <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">
-            Occupation: <u>{{ucwords($data['father_occupation'])}}</u>
-        </td>
-        <td style="width: 10%;text-align: left;border: solid white 1px; font-size: 15px">
-            Age: <u>{{ucwords($data['father_age'])}}</u>
+            Occupation: ___<u>{{ucwords($data['father_occupation'])}}</u>____________________________________________________
         </td>
     </tr>
 </table>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 45%;text-align: left;border: solid white 1px; font-size: 15px">
-            Mother's Name:<u> {{ucwords($data['mother'])}}</u>
+            Mother's Name:__<u> {{ucwords($data['mother'])}}</u>________________
+{{--            Occupation: _<u>{{ucwords($data['mother_occupation'])}}</u>_--}}
+            Age: _________<u>{{ucwords($data['mother_age'])}}</u>__________
         </td>
+{{--        <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Occupation: __<u>{{ucwords($data['mother_occupation'])}}</u>__--}}
+{{--        </td>--}}
+{{--        <td style="width: 10%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Age: __<u>{{ucwords($data['mother_age'])}}</u>__--}}
+{{--        </td>--}}
+    </tr>
+</table>
+
+<table style="width: 100%; margin-top: 2%;">
+    <tr>
         <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">
-            Occupation: <u>{{ucwords($data['mother_occupation'])}}</u>
-        </td>
-        <td style="width: 10%;text-align: left;border: solid white 1px; font-size: 15px">
-            Age: <u>{{ucwords($data['mother_age'])}}</u>
+            Occupation: ___<u>{{ucwords($data['mother_occupation'])}}</u>__________________________________________________________
         </td>
     </tr>
 </table>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 45%;text-align: left;border: solid white 1px; font-size: 15px">
-            Provincial Address: <u>{{ucwords($data['provincial_address'])}}</u>
+            Provincial Address: _____<u>{{ucwords($data['provincial_address'])}}</u>______________________________________________
         </td>
+{{--        <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            City Address: <u>{{ucwords($data['city_address'])}}</u>--}}
+{{--        </td>--}}
+{{--        <td style="width: 25%;text-align: right;border: solid white 1px; font-size: 15px">--}}
+{{--            Telephone: <u>{{ucwords($data['parent_contact'])}}</u>--}}
+{{--        </td>--}}
+    </tr>
+</table>
+
+<table style="width: 100%; margin-top: 2%;">
+    <tr>
         <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
-            City Address: <u>{{ucwords($data['city_address'])}}</u>
+            City Address: _____<u>{{ucwords($data['city_address'])}}</u>_______________________________________________________
         </td>
-        <td style="width: 25%;text-align: right;border: solid white 1px; font-size: 15px">
-            Telephone: <u>{{ucwords($data['parent_contact'])}}</u>
+    </tr>
+</table>
+
+<table style="width: 100%; margin-top: 2%;">
+    <tr>
+
+        <td style="width: 25%;text-align: left;border: solid white 1px; font-size: 15px">
+            Telephone: ______<u>{{ucwords($data['parent_contact'])}}</u>_____________________________________________________
         </td>
     </tr>
 </table>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 40%;text-align: left;border: solid white 1px; font-size: 15px">
-            Guardian: <u>{{ucwords($data['guardian'])}}</u>
+            Guardian: ______<u>{{ucwords($data['guardian'])}}</u>____________________________________
         </td>
-        <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">
-            Address:<u> {{ucwords($data['guardian_address'])}}</u>
-        </td>
-        <td style="width: 25%;text-align: right;border: solid white 1px; font-size: 15px">
-            Tel. No.: <u>{{ucwords($data['guardian_contact'])}}</u>
-        </td>
+{{--        <td style="width: 35%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Address:<u> {{ucwords($data['guardian_address'])}}</u>--}}
+{{--        </td>--}}
+{{--        <td style="width: 25%;text-align: right;border: solid white 1px; font-size: 15px">--}}
+{{--            Tel. No.: <u>{{ucwords($data['guardian_contact'])}}</u>--}}
+{{--        </td>--}}
     </tr>
 </table>
+
+<table style="width: 100%; margin-top: 2%;">
+    <tr>
+        <td style="width: 40%;text-align: left;border: solid white 1px; font-size: 15px">
+            Address:_________<u> {{ucwords($data['guardian_address'])}}</u>_________________
+            Tel. No.: ___<u>{{ucwords($data['guardian_contact'])}}</u>___________
+        </td>
+
+    </tr>
+</table>
+
+
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 70%;text-align: left;border: solid white 1px; font-size: 15px">
-            Person to Contact In Case of Emergency: <u>{{ucwords($data['personToContact'])}}</u>
+            Person to Contact In Case of Emergency: _____<u>{{ucwords($data['personToContact'])}}</u>____________________
         </td>
-        <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
-            Tel. No.: <u>{{ucwords($data['emergency_contact'])}}</u>
-        </td>
+{{--        <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">--}}
+{{--            Tel. No.: <u>{{ucwords($data['emergency_contact'])}}</u>--}}
+{{--        </td>--}}
     </tr>
 </table>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 100%;text-align: left;border: solid white 1px; font-size: 15px">
-            Address: <u>{{ucwords($data['emergency_address'])}}</u>
+            Address: _____<u>{{ucwords($data['emergency_address'])}}</u>__________
+            Tel. No.:________<u>{{ucwords($data['emergency_contact'])}}</u>____________
         </td>
     </tr>
 </table>

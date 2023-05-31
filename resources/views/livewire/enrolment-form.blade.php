@@ -67,7 +67,7 @@
                 <input type="text" class="form-control" wire:model="lname">
             </div>
             <div class="mb-3 div9">
-                <label for="exampleInputPassword1" class="form-label">Middle Name</label>
+                <label for="exampleInputPassword1" class="form-label">Middle Name (put "N/A" if not applicable)</label>
                 <input type="text" class="form-control" wire:model="mname" required>
             </div>
         </div>
@@ -196,8 +196,8 @@
         <div class="div75">
             <div class="mb-3 div77">
                 <label class="form-label">Place</label>
-                <input type="text" class="form-control" wire:model="address">
-                @error('address')
+                <input type="text" class="form-control" wire:model="birthplace">
+                @error('birthplace')
                 <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
                 @enderror
             </div>
