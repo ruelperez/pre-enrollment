@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class LoginPage extends Component
 {
-    public $a=0, $b=0, $usn, $first_name, $last_name, $username, $password, $password_confirmation;
+    public $a=0, $b=0, $last_school, $usn, $first_name, $last_name, $username, $password, $password_confirmation;
 
     public function render()
     {
@@ -86,6 +86,7 @@ class LoginPage extends Component
         $validated = $this->validate([
             "first_name" => 'required',
             "last_name" => 'required',
+            "last_school" => 'required',
             "username" =>['required', Rule::unique('users','username')],
             "password" => 'required|confirmed|min:5'
         ]);

@@ -30,6 +30,12 @@
                     <p class="text-red-500 text-xs p-1">{{$message}}</p>
                     @enderror
                     <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Last School Attended" wire:model="last_school" required>
+                    </div>
+                    @error('last_school')
+                    <p class="text-red-500 text-xs p-1">{{$message}}</p>
+                    @enderror
+                    <div class="mb-3">
                         <input type="text" class="form-control" placeholder="UserName" wire:model="username" required>
                     </div>
                     @error('username')
