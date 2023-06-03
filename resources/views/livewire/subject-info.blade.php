@@ -1,3 +1,4 @@
+
 <div class="sub-info"> @include('modal.add_subject')
     <form wire:submit.prevent="submit">
         <div class="adiv">

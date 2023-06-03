@@ -17,17 +17,17 @@
 <nav>
     <div class="nav-bar">
         <i class='bx bx-menu sidebarOpen' ></i>
-        <span class="logo navLogo"><a href="https://www.facebook.com/ACLCCollegeIRIGA">  <img src="{{ asset('image/aclc_logo.png') }}" style="width: 200px" > </a></span>
+        <span class="logo navLogo"><a href="{{url('/admin/home')}}">  <img src="{{ asset('image/aclc_logo.png') }}" style="width: 200px" > </a></span>
 
         <div class="menu">
             <div class="logo-toggle">
-                <span class="logo"><a href="#">ACLC Pre-Erollment System</a></span>
+                <span class="logo"><a href="{{url('/admin/home')}}">ACLC Pre-Erollment System</a></span>
                 <i class='bx bx-x siderbarClose'></i>
             </div>
 
             <ul class="nav-links">
                 <li><a href="{{url('/admin/home')}}">Home</a></li>
-                <li><a href="{{url('/admin/about')}}">About</a></li>
+{{--                <li><a href="{{url('/admin/about')}}">About</a></li>--}}
                 <li><a href="{{url('/admin/new-student')}}">New Student Info</a></li>
                 <form action="/admin/logout" method="POST">
                     @csrf
@@ -43,17 +43,17 @@
                 <i class='bx bx-sun sun'></i>
             </div>
 
-{{--            <div class="searchBox">--}}
-{{--                <div class="searchToggle">--}}
+            <div class="searchBox">
+                <div class="searchToggle">
 {{--                    <i class='bx bx-x cancel'></i>--}}
 {{--                    <i class='bx bx-search search'></i>--}}
-{{--                </div>--}}
+                </div>
 
-{{--                <div class="search-field">--}}
+                <div class="search-field">
 {{--                    <input type="text" placeholder="Search...">--}}
 {{--                    <i class='bx bx-search'></i>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                </div>
+            </div>
         </div>
     </div>
 </nav>
@@ -108,3 +108,4 @@
 
 </body>
 </html>
+@include('footer')

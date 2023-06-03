@@ -27,8 +27,7 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="">About</a></li>
+                <li><a href="{{ url('/') }}">Home</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
             </ul>
         </div>
@@ -39,16 +38,16 @@
                 <i class='bx bx-sun sun'></i>
             </div>
 
-            <div class="">
-                <div class="">
-                    <i class=''></i>
-                    <i class=''></i>
+            <div class="searchBox">
+                <div class="searchToggle">
+                    {{--                    <i class='bx bx-x cancel'></i>--}}
+                    {{--                    <i class='bx bx-search search'></i>--}}
                 </div>
 
-{{--                <div class="search-field">--}}
-{{--                    <input type="text" placeholder="Search...">--}}
-{{--                    <i class='bx bx-search'></i>--}}
-{{--                </div>--}}
+                <div class="search-field">
+                    {{--                    <input type="text" placeholder="Search...">--}}
+                    {{--                    <i class='bx bx-search'></i>--}}
+                </div>
             </div>
         </div>
     </div>
@@ -104,3 +103,4 @@
 
 </body>
 </html>
+@include('footer')

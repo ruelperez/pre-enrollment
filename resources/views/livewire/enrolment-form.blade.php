@@ -1,5 +1,4 @@
 
-
 <div class="enrolmentDiv">
     @if($da == 1)
         <button type="button" class="btn btn-danger clear" wire:click="del">Clear Data</button>
@@ -330,3 +329,4 @@
 
     </form>
 </div>
+

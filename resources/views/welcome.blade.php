@@ -27,8 +27,8 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-{{--                <li><a href="#">About</a></li>--}}
+                <li><a href="{{ url('/') }}">Home</a></li>
+{{--                <li><a href="{{ url('/about') }}">About</a></li>--}}
                 <li><a href="{{ route('login') }}">Login</a></li>
 
             </ul>
@@ -40,17 +40,17 @@
                 <i class='bx bx-sun sun'></i>
             </div>
 
-{{--            <div class="searchBox">--}}
-{{--                <div class="searchToggle">--}}
+            <div class="searchBox">
+                <div class="searchToggle">
 {{--                    <i class='bx bx-x cancel'></i>--}}
 {{--                    <i class='bx bx-search search'></i>--}}
-{{--                </div>--}}
+                </div>
 
-{{--                <div class="search-field">--}}
+                <div class="search-field">
 {{--                    <input type="text" placeholder="Search...">--}}
 {{--                    <i class='bx bx-search'></i>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                </div>
+            </div>
         </div>
     </div>
 </nav>
@@ -106,8 +106,8 @@
 <div class="d-flex">
     <span style="font-size:30px;cursor:pointer; width: 5%; text-align: center;padding-top: 20px;" onclick="openNav()">&#9776; </span>
     <div class="container-fluid" style="background-color: transparent; height: 94px; margin-bottom: 30px;">
-        {{--        <h2 style="color: transparent; margin-left: 38%; margin-top: 15px; position: absolute; font-style: italic"></h2>--}}
-        {{--        <img src="{{url('/image/aclc_logo.png')}}" style="width: 25%; height: 80px; margin-left: 33%;">--}}
+{{--                <h2 style="color: transparent; margin-left: 38%; margin-top: 15px; position: absolute; font-style: italic"></h2>--}}
+{{--                <img src="{{url('/image/aclc_logo.png')}}" style="width: 25%; height: 80px; margin-left: 33%;">--}}
     </div>
 </div>
 
@@ -115,9 +115,24 @@
     <img src="{{ asset('image/transparent.png') }}" style="width: 500px; outline-color: #001aff " >
 
     <h4 style="font-size: 50px;  font-family: 'sans-serif'">ACLC College of Iriga, Inc.</h4>
-    <p style="font-size: 20px; color: transparent"> hidden </p>
-    <p style="font-size: 25px; font-family: 'sans-serif'">is a member of the AMA Education System and is one of the leading computer schools in the country.</p>
-
+{{--    <p style="font-size: 20px; color: transparent"> hidden </p>--}}
+{{--    <p style="font-size: 25px; font-family: 'sans-serif'">is a member of the AMA Education System and is one of the leading computer schools in the country.</p>--}}
+    <h6 style="font-size: 50px;  font-family: 'sans-serif'">Pre-Enrollment Sytem</h6>
 </div>
 </body>
+
+<footer class="main-footer text-sm" >
+    <a href="https://www.facebook.com/ACLCCollegeIRIGA" target="_blank">
+        <img style="margin-top: 30%; margin-left: 5%;" src="{{ asset('image/fbicon.png') }}" alt="Facebook" width="75" height="75" class="facebook-icon">
+
+    </a>
+    <span class="follow-text" style="font-size: 16px; color: #008aff; margin-left: 5px;">Message us on Facebook</span>
+
+</footer>
+
+
+
 </html>
+
+@include('footer')
+

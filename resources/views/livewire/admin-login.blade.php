@@ -6,7 +6,7 @@
             {{session('loginFailed')}}
         </div>
     @endif
-    <div style="margin-left: 10%; width: 80%; text-align: center; margin-top: 15px;">
+    <div style="margin-left: 10%; width: 80%; text-align: center; margin-top: 15px;" >
         <form>
             <input type="text" placeholder="Username" style="margin-bottom: 10px;" wire:model="username" required>
             <input type="password" placeholder="Password" style="margin-bottom: 10px;" wire:model="password" required>

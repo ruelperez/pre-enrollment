@@ -27,11 +27,11 @@
             </div>
 
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
+
+                <li><a href="{{url('/welcome')}}">Home</a></li>
+                <li><a href="{{url('/welcome/about')}}">About</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+
             </ul>
         </div>
 

@@ -1,4 +1,5 @@
 <div>@include('modal.subject_reg')
+
 {{--    <div style="display: flex;">--}}
 {{--        <div style="width: 20%; margin-left: 21%;">@error('year') <span style="color: red;>{{ $message }}</span> @enderror</div>--}}
 {{--        <div style="width: 20%;">@error('semister') <span style="color: red;">{{ $message }}</span> @enderror</div>--}}

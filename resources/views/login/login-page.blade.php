@@ -24,6 +24,8 @@
         @include('navbar')
         @livewire('login-page')
         @livewire('admin-login')
+
+
     </div>
 
 @include('partial.footer')
