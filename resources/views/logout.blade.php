@@ -10,7 +10,7 @@
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="icon" href="{{ asset('image/icon.jpg') }}">
     <title>ÀCLC Pre-enrollment system</title>
 </head>
 <body>
