@@ -8,12 +8,13 @@ use App\Models\Semester;
 use App\Models\Subject;
 use App\Models\User;
 use App\Models\Yearlevel;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class ShowNewStudent extends Component
 {
 
-    public $base=0, $form_data, $year_id, $course_id, $semester_id, $year, $course;
+    public $base=0, $form_data, $year_id, $temp, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0;
 
     public function render()
     {
@@ -21,7 +22,26 @@ class ShowNewStudent extends Component
         $this->year_data = Yearlevel::all();
         $this->semister_data = Semester::all();
 
+        if ($this->rgs == 1){
+            $this->ng = 0;
+            $this->search();
+        }
+        elseif ($this->searchInput != ""){
+            $this->ng = 1;
+            $this->search();
+        }
+        else{
+            $this->ng = 0;
+        }
+
         return view('livewire.show-new-student');
+    }
+
+    public function search(){
+        $this->resultss = DB::table('users')
+            ->where('last_school', 'LIKE', '%'.$this->searchInput.'%')
+            ->get();
+
     }
 
     public function submit(){
@@ -71,7 +91,20 @@ class ShowNewStudent extends Component
         }
 
     }
-    public function loadData(){
+    public function loadData($id){
+        $this->jm = 1;
+        $this->ng = 0;
+        $f = User::find($id);
+        $this->searchInput = $f->last_school;
+    }
+
+    public function click_suggest($id){
+        $this->ng = 0;
+        $f = User::find($id);
+        $this->searchInput = $f->last_school;
+    }
+
+    public  function search_school(){
 
     }
 }
