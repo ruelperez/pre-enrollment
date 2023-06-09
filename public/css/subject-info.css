@@ -117,8 +117,8 @@ body{
         width: 50%;
         height: 75px;
         margin-left: 25%;
-        background-color: darkblue;
         padding-top: 1.2%;
+        background-color: darkblue;
         display: flex;
     }
     .addModal{

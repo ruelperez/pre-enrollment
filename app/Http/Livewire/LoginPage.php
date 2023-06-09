@@ -36,6 +36,10 @@ class LoginPage extends Component
         }
     }
 
+    protected $rules = [
+        'last_school' => 'required|regex:/^\S+$/|not_regex:/\s/',
+    ];
+
     public function submit_usn(){
         $un = UsnList::all();
         foreach ($un as $uns){
@@ -86,7 +90,7 @@ class LoginPage extends Component
         $validated = $this->validate([
             "first_name" => 'required',
             "last_name" => 'required',
-            "last_school" => 'required',
+            "last_school" => 'required|regex:/^\w+$/',
             "username" =>['required', Rule::unique('users','username')],
             "password" => 'required|confirmed|min:5'
         ]);
