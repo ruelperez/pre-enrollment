@@ -14,7 +14,7 @@ use Livewire\Component;
 class ShowNewStudent extends Component
 {
 
-    public $base=0, $form_data, $year_id, $temp, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0;
+    public $base=0, $form_data, $jm=0, $year_id, $temp=0, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0;
 
     public function render()
     {
@@ -22,7 +22,15 @@ class ShowNewStudent extends Component
         $this->year_data = Yearlevel::all();
         $this->semister_data = Semester::all();
 
-        if ($this->rgs == 1){
+        if ($this->temp != 0 and $this->temp != $this->searchInput){
+            $this->ng = 1;
+            $this->bs = 0;
+            $this->search();
+        }
+        elseif ($this->searchInput != "" and $this->jm == 1){
+            $this->ng = 0;
+        }
+        elseif ($this->rgs == 1){
             $this->ng = 0;
             $this->search();
         }
@@ -96,15 +104,23 @@ class ShowNewStudent extends Component
         $this->ng = 0;
         $f = User::find($id);
         $this->searchInput = $f->last_school;
+        $this->temp = $f->last_school;
+        $this->bs = 1;
+        $school_data = User::where('last_school',$f->last_school)->get();
+        $this->form_data = $school_data;
     }
 
-    public function click_suggest($id){
-        $this->ng = 0;
-        $f = User::find($id);
-        $this->searchInput = $f->last_school;
-    }
+//    public function click_suggest($id){
+//        $this->ng = 0;
+//        $f = User::find($id);
+//        $this->searchInput = $f->last_school;
+//    }
 
     public  function search_school(){
 
+    }
+
+    public function tata(){
+        dd('nana');
     }
 }
