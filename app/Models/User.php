@@ -25,6 +25,12 @@ class User extends Authenticatable
         'role',
         'usn',
         'last_school',
+        'birthday',
+        'age',
+        'address',
+        'status',
+        'sex',
+        'middle_name',
 
     ];
 

@@ -29,12 +29,16 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
     Route::get('/about', function (){
         return view('admin.about');
     });
+    Route::get('/student-info', function (){
+        return view('admin.home');
+    });
 });
 
 Route::prefix('/student')->middleware(['auth','isStudent'])->group(function (){
     Route::get('/home', function (){
         return view('login.subject-info');
     });
+
 
     Route::get('/enrolment-form/{courseID}/{semesterID}/{yearID}', function ($courseID,$semesterID,$yearID){
         return view('user.enrolment-form', ['courseID' => $courseID, 'semesterID' => $semesterID, 'yearID' => $yearID]);

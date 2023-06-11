@@ -195,8 +195,8 @@
         <div class="div75">
             <div class="mb-3 div77">
                 <label class="form-label">Place</label>
-                <input type="text" class="form-control" wire:model="birthplace">
-                @error('birthplace')
+                <input type="text" class="form-control" wire:model="address">
+                @error('address')
                 <p class="text-red-500 text-xs p-1" style="color: red">{{$message}}</p>
                 @enderror
             </div>

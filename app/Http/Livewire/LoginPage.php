@@ -10,7 +10,7 @@ use Livewire\Component;
 
 class LoginPage extends Component
 {
-    public $a=0, $b=0, $last_school, $usn, $first_name, $last_name, $username, $password, $password_confirmation;
+    public $a=0, $b=0, $last_school, $usn, $age, $address, $abbreviation_school, $complete_school, $status, $sex, $middle_name, $birthday, $first_name, $last_name, $username, $password, $password_confirmation;
 
     public function render()
     {
@@ -87,12 +87,20 @@ class LoginPage extends Component
     }
 
     public function submit_reg_student(){
+        $this->last_school = $this->complete_school . " (" . $this->abbreviation_school . ")";
+
         $validated = $this->validate([
             "first_name" => 'required',
             "last_name" => 'required',
-            "last_school" => 'required|regex:/^\w+$/',
+            "last_school" => 'nullable',
             "username" =>['required', Rule::unique('users','username')],
-            "password" => 'required|confirmed|min:5'
+            "password" => 'required|confirmed|min:5',
+            "middle_name" => 'nullable',
+            "birthday" => 'required',
+            "address" => 'required',
+            "status" => 'required',
+            "sex" => 'required',
+            "age" => 'required',
         ]);
 
         $validated['password'] = bcrypt($validated['password']);

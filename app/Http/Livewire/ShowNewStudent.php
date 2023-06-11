@@ -14,7 +14,7 @@ use Livewire\Component;
 class ShowNewStudent extends Component
 {
 
-    public $base=0, $form_data, $jm=0, $year_id, $temp=0, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0;
+    public $base=0, $form_data, $jm=0, $year_id, $userDATA, $temp=0, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0;
 
     public function render()
     {
@@ -40,6 +40,8 @@ class ShowNewStudent extends Component
         }
         else{
             $this->ng = 0;
+            $this->userDATA = User::all();
+
         }
 
         return view('livewire.show-new-student');
