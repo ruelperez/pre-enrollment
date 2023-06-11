@@ -93,7 +93,7 @@
                                 <td>{{$frm_data->room}}</td>
                                 <td>{{$frm_data->modality}}</td>
                                 <td>{{$frm_data->teacher}}</td>
-                                <td>{{$frm_data->tuition}}</td>
+                                <td><p style="display: none;">{{$frm_data->tuition}}</p></td>
                                 <td class="tdDelete">
                                     <img class="delIcon" src="{{url('/image/delete.png')}}" wire:click="remove({{$frm_data->id}})"  width="27" height="27">
                                 </td>
