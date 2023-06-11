@@ -70,6 +70,15 @@ class EnrolmentForm extends Component
 
         $this->fname = auth()->user()->first_name;
         $this->lname = auth()->user()->last_name;
+        if ($this->mname == null){
+            $this->fullname = $this->fname . " " . $this->lname;
+        }
+        else{
+            $this->fullname = $this->fname . " " . $this->mname . " " . $this->lname;
+        }
+
+
+
 
         return view('livewire.enrolment-form');
     }
