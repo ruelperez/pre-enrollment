@@ -48,14 +48,11 @@ Route::prefix('/student')->middleware(['auth','isStudent'])->group(function (){
 });
 
 
-
 Route::get('/login-page', function () {
     return view('login.login-page');
 })->name('login')->middleware('guest');
 
 
-Route::get('/import', 'ImportController@showImportForm')->name('import');
-Route::post('/import', 'ImportController@import')->name('import.post');
 
 
 Route::post('/admin/logout', [UserController::class, 'logout']);
@@ -63,6 +60,8 @@ Route::post('/admin/store', [UserController::class, 'store']);
 Route::post('/admin/login-process', [UserController::class, 'login']);
 //Route::get('/import-excel', 'ExcelController@showImportForm')->name('import.excel');
 //Route::post('/import-excel', 'ExcelController@import')->name('import.excel');
+
+Route::post('/import', 'App\Http\Controllers\ImportController@import')->name('import');
 
 
 
