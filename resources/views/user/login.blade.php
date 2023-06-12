@@ -16,7 +16,7 @@
                                     @error('username')
                                     <p style="color: red">{{$message}}</p>
                                     @enderror
-                                </di v>
+                                </div>
 
                                 <div class="form-outline mb-4">
                                     <input type="password" id="form3Example4cg" name="password" placeholder="Password" class="form-control form-control-lg" />
