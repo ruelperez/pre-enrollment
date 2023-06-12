@@ -24,7 +24,7 @@
 
 </div>
 
-@livewire('show-subject')
+@livewire('student-info')
 
 
 <script type="text/javascript">

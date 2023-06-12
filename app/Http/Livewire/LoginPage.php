@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Newstudent;
 use App\Models\User;
 use App\Models\UsnList;
 use Illuminate\Support\Facades\DB;
@@ -103,10 +104,35 @@ class LoginPage extends Component
             "age" => 'required',
         ]);
 
+        $new = $this->validate([
+            "first_name" => 'required',
+            "last_name" => 'required',
+            "last_school" => 'nullable',
+            "middle_name" => 'nullable',
+            "birthday" => 'required',
+            "address" => 'required',
+            "status" => 'required',
+            "sex" => 'required',
+            "age" => 'required',
+        ]);
+
+        $list = $this->validate([
+            "first_name" => 'required',
+            "last_name" => 'required',
+            "middle_name" => 'nullable',
+            "birthday" => 'required',
+            "address" => 'required',
+            "status" => 'required',
+            "sex" => 'required',
+            "age" => 'required',
+            "usn" => 'nullable',
+        ]);
+
         $validated['password'] = bcrypt($validated['password']);
 
         $user = User::create($validated);
-
+        Newstudent::create($new);
+        \App\Models\Studentinfo::create($list);
         auth()->login($user);
 
         return redirect('/student/home');

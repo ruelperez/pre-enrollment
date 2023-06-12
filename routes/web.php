@@ -30,7 +30,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
         return view('admin.about');
     });
     Route::get('/student-info', function (){
-        return view('admin.home');
+        return view('admin.student-info');
     });
 });
 
