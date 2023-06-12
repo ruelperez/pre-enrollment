@@ -1,5 +1,5 @@
 <div>
-    <button wire:click="transfer">transfer</button>
+{{--    <button wire:click="transfer">transfer</button>--}}
 
     <input type="text" placeholder="Search School" wire:model.debounce.1ms="searchInput" style="width: 30%; margin-left: 35%; padding: 0.3%;">
 
