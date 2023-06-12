@@ -1,4 +1,6 @@
 <div>
+    <button wire:click="transfer">transfer</button>
+
     <input type="text" placeholder="Search School" wire:model.debounce.1ms="searchInput" style="width: 30%; margin-left: 35%; padding: 0.3%;">
 
     @if($ng == 1)
@@ -8,6 +10,7 @@
                         <thead>
                         <tr>
                             <th>First Name</th>
+                            <th>Middle Name</th>
                             <th>Last Name</th>
                             <th>Last School Attended</th>
                         </tr>
@@ -22,6 +25,7 @@
                                 @foreach($resultss as $result)
                                     <tr>
                                         <td>{{$result->first_name}}</td>
+                                        <td>{{$result->middle_name}}</td>
                                         <td>{{$result->last_name}}</td>
                                         <td>{{$result->last_school}}</td>
                                     </tr>
@@ -48,6 +52,7 @@
             <thead>
             <tr>
                 <th>First Name</th>
+                <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Last School Attended</th>
             </tr>
@@ -58,6 +63,7 @@
                 @foreach($userDATA as $frm_data)
                     <tr>
                         <td>{{$frm_data->first_name}}</td>
+                        <td>{{$frm_data->middle_name}}</td>
                         <td>{{$frm_data->last_name}}</td>
                         <td>{{$frm_data->last_school}}</td>
                     </tr>

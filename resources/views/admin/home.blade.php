@@ -1,12 +1,11 @@
 @include('partial.header')
-
 <div class="d-flex">
     <span style="font-size:30px;cursor:pointer; width: 5%; text-align: center;padding-top: 20px;" onclick="openNav()">&#9776; </span>
     <div class="container-fluid" style="background-color: transparent; height: 94px; margin-bottom: 30px;">
-{{--        <h2 style="color: transparent; margin-left: 38%; margin-top: 15px; position: absolute; font-style: italic"></h2>--}}
-{{--        <img src="{{url('/image/aclc_logo.png')}}" style="width: 25%; height: 80px; margin-left: 33%;">--}}
+        {{--        <h2 style="color: transparent; margin-left: 38%; margin-top: 15px; position: absolute; font-style: italic"></h2>--}}
+        {{--        <img src="{{url('/image/aclc_logo.png')}}" style="width: 25%; height: 80px; margin-left: 33%;">--}}
     </div>
-@include('logout')
+    @include('logout')
 </div>
 
 {{--<div id="mySidenav" class="sidenav">--}}
@@ -24,7 +23,7 @@
 
 </div>
 
-    @livewire('show-subject')
+@livewire('show-subject')
 
 
 <script type="text/javascript">
@@ -37,5 +36,10 @@
     }
 
 </script>
+
+
+
+
+
 
 @include('partial.footer')

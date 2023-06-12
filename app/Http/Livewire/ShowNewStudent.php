@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Course;
 use App\Models\FillUp;
+use App\Models\Newstudent;
+use App\Models\Oldstudent;
 use App\Models\Semester;
 use App\Models\Subject;
 use App\Models\User;
+use App\Models\UsnList;
 use App\Models\Yearlevel;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -40,7 +43,7 @@ class ShowNewStudent extends Component
         }
         else{
             $this->ng = 0;
-            $this->userDATA = User::all();
+            $this->userDATA = Newstudent::all();
 
         }
 
@@ -48,7 +51,7 @@ class ShowNewStudent extends Component
     }
 
     public function search(){
-        $this->resultss = DB::table('users')
+        $this->resultss = DB::table('newstudents')
             ->where('last_school', 'LIKE', '%'.$this->searchInput.'%')
             ->get();
 
@@ -122,7 +125,14 @@ class ShowNewStudent extends Component
 
     }
 
-    public function tata(){
-        dd('nana');
+    public function transfer(){
+       $hh = UsnList::all();
+       foreach ($hh as $h){
+            \App\Models\Studentinfo::create([
+               "last_name" => $h->lname,
+               "first_name" => $h->fname,
+                "usn" => $h->id,
+            ]);
+       }
     }
 }
