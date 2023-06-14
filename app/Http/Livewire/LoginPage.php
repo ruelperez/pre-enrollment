@@ -44,20 +44,23 @@ class LoginPage extends Component
     public function submit_usn(){
         $un = UsnList::all();
         foreach ($un as $uns){
-            if ($uns->id == $this->usn){
-                $users = DB::table('users')
-                    ->where('usn',$this->usn)
-                    ->get();
+            if ($uns->usn == $this->usn){
+                $users = User::where('usn',$this->usn)->get();
 
                 if (count($users) == 0){
-                    $usn = UsnList::find($this->usn);
-                    $pass = bcrypt($usn->id);
+                    $usn = UsnList::where('usn',$this->usn)->get();
+                    foreach ($usn as $usns){
+                        $pass = bcrypt($usns->usn);
+                        $f_name = $usns->fname;
+                        $l_name = $usns->lname;
+                        $usn_num = $usns->usn;
+                    }
 
                     $data = User::create([
                         "usn" => $this->usn,
-                        "first_name" => $usn->fname,
-                        "last_name" => $usn->lname,
-                        "username" => $usn->id,
+                        "first_name" => $f_name,
+                        "last_name" => $l_name,
+                        "username" => $usn_num,
                         "password" => $pass,
                     ]);
 
