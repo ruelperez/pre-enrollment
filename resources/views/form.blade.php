@@ -869,7 +869,7 @@ io                </td>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 30%;text-align: left;border: solid white 1px; font-size: 15px">
-            City Address: _____<u>{{ucwords($data['city_address'])}}</u>_______________________________________________________
+            City Address: ______<u>{{ucwords($data['city_address'])}}</u>_______________________________________________________
         </td>
     </tr>
 </table>
@@ -899,7 +899,7 @@ io                </td>
 <table style="width: 100%; margin-top: 2%;">
     <tr>
         <td style="width: 40%;text-align: left;border: solid white 1px; font-size: 15px">
-            Address:_________<u> {{ucwords($data['guardian_address'])}}</u>_________________
+            Address:_________<u> {{ucwords($data['guardian_address'])}}</u>______________
             Tel. No.: ___<u>{{ucwords($data['guardian_contact'])}}</u>___________
         </td>
 
