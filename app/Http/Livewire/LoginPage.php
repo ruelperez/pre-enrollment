@@ -42,17 +42,17 @@ class LoginPage extends Component
     ];
 
     public function submit_usn(){
-        $un = UsnList::all();
+        $un = \App\Models\Studentinfo::all();
         foreach ($un as $uns){
             if ($uns->usn == $this->usn){
                 $users = User::where('usn',$this->usn)->get();
 
                 if (count($users) == 0){
-                    $usn = UsnList::where('usn',$this->usn)->get();
+                    $usn = \App\Models\Studentinfo::where('usn',$this->usn)->get();
                     foreach ($usn as $usns){
                         $pass = bcrypt($usns->usn);
-                        $f_name = $usns->fname;
-                        $l_name = $usns->lname;
+                        $f_name = $usns->first_name;
+                        $l_name = $usns->last_name;
                         $usn_num = $usns->usn;
                     }
 
