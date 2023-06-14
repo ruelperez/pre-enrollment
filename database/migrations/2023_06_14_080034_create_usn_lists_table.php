@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usn_lists', function (Blueprint $table) {
-            $table->id();
             $table->bigInteger('usn');
             $table->string('fname');
             $table->string('lname');

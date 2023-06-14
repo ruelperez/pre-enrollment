@@ -114,7 +114,7 @@
                             <td></td>
                             <td></td>
                             <td><div class="number-box">
-                                    <span class="number">{{$total_tuition}}</span>
+                                    <span class="number" style="display: none;">{{$total_tuition}}</span>
                                 </div></td>
                         </tr>
                 @endif
