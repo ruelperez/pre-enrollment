@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('birthplace');
             $table->string('sex')->nullable();
             $table->string('fullname');
-            $table->integer('age');
+            $table->string('age');
             $table->string('status');
             $table->string('height');
             $table->string('weight');
