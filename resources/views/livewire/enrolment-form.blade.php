@@ -66,7 +66,7 @@
                 <input type="text" class="form-control" wire:model="lname">
             </div>
             <div class="mb-3 div9">
-                <label for="exampleInputPassword1" class="form-label">Middle Name (put "N/A" if not applicable)</label>
+                <label for="exampleInputPassword1" class="form-label">Middle Name</label>
                 <input type="text" class="form-control" wire:model="mname">
             </div>
         </div>
