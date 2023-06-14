@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('usn_lists', function (Blueprint $table) {
-            $table->bigInteger('usn');
-            $table->string('fname');
-            $table->string('lname');
+        Schema::table('studentinfos', function (Blueprint $table) {
+            $table->string('class')->default('old');
+            $table->string('last_school')->nullable();
         });
     }
 
@@ -23,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('usn_lists');
+        Schema::table('studentinfos', function (Blueprint $table) {
+            //
+        });
     }
 };

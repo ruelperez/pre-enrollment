@@ -1,6 +1,7 @@
 <div>
     @include('modal.add-student')
-    <div style="display: flex;">
+    <button type="button" class="btn btn-success" wire:click="but" style="margin-left: 83%;">Import USN data</button>
+    <div style="display: flex; margin-top: 1%;">
         <div style="margin-left: 5%;">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_student">Add Student</button>
         </div>

@@ -16,7 +16,7 @@ use Livewire\Component;
 
 class StudentInfo extends Component
 {
-    public $base=0, $form_data, $jm=0, $year_id, $userDATA, $temp=0, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0,
+    public $base=0, $form_data, $class, $jm=0, $year_id, $userDATA, $temp=0, $bs=0, $course_id, $semester_id, $year, $course, $ng=0, $searchInput, $rgs=0,
             $first_name, $middle_name, $last_name, $birthday, $age, $sex, $address, $status, $usn;
 
     public function render()
@@ -173,44 +173,64 @@ class StudentInfo extends Component
         $da = \App\Models\Studentinfo::find($id);
 
         if ($this->usn == ""){
-            $this->usn = 0;
-            $validate = $this->validate([
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'usn' => 'integer',
-                'birthday' => 'nullable',
-                'age' => 'nullable',
-                'address' => 'nullable',
-                'status' => 'nullable',
-                'sex' => 'nullable',
-                'middle_name' => 'nullable',
-            ]);
-        }
-        elseif ($da->usn == $this->usn){
-            $validate = $this->validate([
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'usn' => 'integer',
-                'birthday' => 'nullable',
-                'age' => 'nullable',
-                'address' => 'nullable',
-                'status' => 'nullable',
-                'sex' => 'nullable',
-                'middle_name' => 'nullable',
-            ]);
-        }
-        else{
-            $sn = $da->usn;
-            $user = UsnList::where('usn',$da->usn)->get();
-            foreach ($user as $users){
-                $users->usn = $this->usn;
-                $users->save();
-            }
+            $this->class = "new";
+            $this->usn = 0000000001;
 
-            $ub = User::where('username',$sn)->get();
+//            $us = UsnList::where('usn',$da->usn)->get();
+//            foreach ($us as $use){
+//                $rgh = UsnList::find($use->id);
+//                $rgh->usn = $this->usn;
+//                $rgh->save();
+//            }
+
+            $ub = User::where('username',$da->usn)->get();
             foreach ($ub as $ubs){
                 User::find($ubs->id)->delete();
             }
+
+            $validate = $this->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'usn' => 'integer',
+                'birthday' => 'nullable',
+                'age' => 'nullable',
+                'address' => 'nullable',
+                'status' => 'nullable',
+                'sex' => 'nullable',
+                'middle_name' => 'nullable',
+                'class' => 'required'
+            ]);
+        }
+        elseif ($da->usn == $this->usn){
+            $this->class = "old";
+            $validate = $this->validate([
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'usn' => 'integer',
+                'birthday' => 'nullable',
+                'age' => 'nullable',
+                'address' => 'nullable',
+                'status' => 'nullable',
+                'sex' => 'nullable',
+                'middle_name' => 'nullable',
+                'class' => 'required'
+            ]);
+        }
+        else{
+            $this->class = "old";
+//            $user = UsnList::where('usn',$da->usn)->get();
+//            foreach ($user as $users){
+//                $dj = $users->id;
+//            }
+//            $rgh = UsnList::find($dj);
+//            $rgh->usn = $this->usn;
+//            $rgh->save();
+
+            $ub = User::where('username',$da->usn)->get();
+            foreach ($ub as $ubs){
+                User::find($ubs->id)->delete();
+            }
+
 
             $validate = $this->validate([
                 'first_name' => 'required',
@@ -222,6 +242,7 @@ class StudentInfo extends Component
                 'status' => 'nullable',
                 'sex' => 'nullable',
                 'middle_name' => 'nullable',
+                'class' => 'required'
             ]);
         }
 
@@ -235,13 +256,36 @@ class StudentInfo extends Component
             $data->age = $this->age;
             $data->address = $this->address;
             $data->status = $this->status;
-            $data->sex = $this->sex;
+            $data->class = $this->class;
             $data->save();
             session()->flash('good',"Successfully Updated");
             $this->blank();
         }
         catch(\Exception $e){
             session()->flash('bad',"Failed to Update");
+        }
+    }
+
+    public function but(){
+        $num = 0;
+        $r = UsnList::all();
+        $k = \App\Models\Studentinfo::all();
+
+        foreach ($r as $rs){
+            foreach ($k as $ks){
+                if ($rs->usn == $ks->usn){
+                    $num++;
+                }
+            }
+
+            if ($num == 0){
+                \App\Models\Studentinfo::create([
+                    'usn' => $rs->usn,
+                    'first_name' => $rs->fname,
+                    'last_name' => $rs->lname,
+                ]);
+            }
+           $num = 0;
         }
     }
 

@@ -17,6 +17,8 @@ class Studentinfo extends Model
         'status',
         'sex',
         'middle_name',
+        'class',
+        'last_school'
     ];
 
     use HasFactory;

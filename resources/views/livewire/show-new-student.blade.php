@@ -23,12 +23,14 @@
                                 </tr>
                             @else
                                 @foreach($resultss as $result)
+                                    @if($result->class == "new")
                                     <tr>
                                         <td>{{$result->first_name}}</td>
                                         <td>{{$result->middle_name}}</td>
                                         <td>{{$result->last_name}}</td>
                                         <td>{{$result->last_school}}</td>
                                     </tr>
+                                    @endif
                                 @endforeach
                             @endif
 
@@ -61,12 +63,14 @@
             <tbody>
 
                 @foreach($userDATA as $frm_data)
+                    @if($frm_data->class == "new")
                     <tr>
                         <td>{{$frm_data->first_name}}</td>
                         <td>{{$frm_data->middle_name}}</td>
                         <td>{{$frm_data->last_name}}</td>
                         <td>{{$frm_data->last_school}}</td>
                     </tr>
+                    @endif
                 @endforeach
 
              </tbody>

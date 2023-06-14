@@ -19,6 +19,9 @@
                 <form wire:submit.prevent="submit_reg_student" style="width: 96%; margin-left: 2%;">
                     <div style="display: flex;">
                         <div class="mb-3">
+                            <input type="text" class="form-control" hidden placeholder="class" wire:model="class">
+                        </div>
+                        <div class="mb-3">
                             <input type="text" class="form-control" placeholder="First Name" wire:model="first_name" required>
                         </div>
                         @error('first_name')

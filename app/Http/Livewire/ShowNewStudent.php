@@ -4,8 +4,6 @@ namespace App\Http\Livewire;
 
 use App\Models\Course;
 use App\Models\FillUp;
-use App\Models\Newstudent;
-use App\Models\Oldstudent;
 use App\Models\Semester;
 use App\Models\Subject;
 use App\Models\User;
@@ -43,7 +41,7 @@ class ShowNewStudent extends Component
         }
         else{
             $this->ng = 0;
-            $this->userDATA = Newstudent::all();
+            $this->userDATA = \App\Models\Studentinfo::all();
 
         }
 
@@ -51,7 +49,7 @@ class ShowNewStudent extends Component
     }
 
     public function search(){
-        $this->resultss = DB::table('newstudents')
+        $this->resultss = DB::table('studentinfos')
             ->where('last_school', 'LIKE', '%'.$this->searchInput.'%')
             ->get();
 
