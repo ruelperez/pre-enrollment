@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsnList extends Model
 {
+    protected $fillable = [
+        'usn',
+        'fname',
+        'lname',
+
+    ];
+
     use HasFactory;
 }

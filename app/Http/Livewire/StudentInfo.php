@@ -200,6 +200,18 @@ class StudentInfo extends Component
             ]);
         }
         else{
+            $sn = $da->usn;
+            $user = UsnList::where('usn',$da->usn)->get();
+            foreach ($user as $users){
+                $users->usn = $this->usn;
+                $users->save();
+            }
+
+            $ub = User::where('username',$sn)->get();
+            foreach ($ub as $ubs){
+                User::find($ubs->id)->delete();
+            }
+
             $validate = $this->validate([
                 'first_name' => 'required',
                 'last_name' => 'required',
