@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('school_year_end');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('address');
             $table->string('guardian');
             $table->string('contact_number');
