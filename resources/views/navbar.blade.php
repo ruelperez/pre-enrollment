@@ -103,4 +103,4 @@
 
 </body>
 </html>
-@include('footer')
+@include('footer2')

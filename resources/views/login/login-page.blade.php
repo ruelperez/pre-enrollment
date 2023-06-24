@@ -16,12 +16,14 @@
 
     @livewireStyles
 </head>
+
 <body>
     <div class="div1">
         <div class="div2">
+            @include('navbar')
             <img class="logo" src="{{url('/image/aclc_logo.png')}}">
         </div>
-        @include('navbar')
+
         @livewire('login-page')
         @livewire('admin-login')
 

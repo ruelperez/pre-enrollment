@@ -18,7 +18,7 @@
 <nav>
     <div class="nav-bar">
         <i class='bx bx-menu sidebarOpen' ></i>
-        <span class="logo navLogo"><a href="https://www.facebook.com/ACLCCollegeIRIGA">  <img src="{{ asset('image/aclc_logo.png') }}" style="width: 200px" > </a></span>
+        <span class="logo navLogo"><a href="">  <img src="{{ asset('image/aclc_logo.png') }}" style="width: 200px" > </a></span>
 
         <div class="menu">
             <div class="logo-toggle">
@@ -111,24 +111,24 @@
     </div>
 </div>
 
-<div class="welcome-text d-flex justify-content-center align-items-center flex-column" style="text-align: center; color: #001aff;">
-    <img src="{{ asset('image/transparent.png') }}" style="width: 500px; outline-color: #001aff " >
+<div class="welcome-text d-flex justify-content-center align-items-center flex-column" style="text-align: center; color: #000000;">
+    <img src="{{ asset('image/transparent.png') }}" style="width: 500px; outline-color: #007cff " >
 
-    <h4 style="font-size: 50px;  font-family: 'sans-serif'">ACLC College of Iriga, Inc.</h4>
+{{--    <h4 style="font-size: 50px;  font-family: 'Poppins',sans-serif;">ACLC College of Iriga, Inc.</h4>--}}
 {{--    <p style="font-size: 20px; color: transparent"> hidden </p>--}}
 {{--    <p style="font-size: 25px; font-family: 'sans-serif'">is a member of the AMA Education System and is one of the leading computer schools in the country.</p>--}}
-    <h6 style="font-size: 50px;  font-family: 'sans-serif'">Pre-Enrollment Sytem</h6>
+    <h6 style="font-size: 50px; color: #0043fa;  font-family: 'Poppins',sans-serif;">Pre-Enrollment Sytem</h6>
 </div>
 </body>
 
-<footer class="main-footer text-sm" >
-    <a href="https://www.facebook.com/ACLCCollegeIRIGA" target="_blank">
-        <img style="margin-top: 30%; margin-left: 5%;" src="{{ asset('image/fbicon.png') }}" alt="Facebook" width="75" height="75" class="facebook-icon">
+{{--<footer class="main-footer text-sm" >--}}
+{{--    <a href="https://www.facebook.com/ACLCCollegeIRIGA" target="_blank">--}}
+{{--        <img style="margin-top: 30%; margin-left: 5%;" src="{{ asset('image/fbicon.png') }}" alt="Facebook" width="75" height="75" class="facebook-icon">--}}
 
-    </a>
-    <span class="follow-text" style="font-size: 16px; color: #008aff; margin-left: 5px;">Message us on Facebook</span>
+{{--    </a>--}}
+{{--    <span class="follow-text" style="font-size: 16px; color: #008aff; margin-left: 5px;">Message us on Facebook</span>--}}
 
-</footer>
+{{--</footer>--}}
 
 
 

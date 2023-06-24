@@ -12,7 +12,7 @@
 
 /* ===== Colours ===== */
 :root{
-    --body-color: #E4E9F7;
+    --body-color: #ffffff;
     --nav-color: #04b0ff;
     --side-nav: #010718;
     --text-color: #FFF;
@@ -23,6 +23,8 @@
 body{
     height: 100vh;
     background-color: var(--body-color);
+    /*background-image: url("../image/aclc.jpg");*/
+    /*width: 500px;*/
 }
 
 body.dark{
@@ -92,7 +94,7 @@ nav .nav-bar .logo a{
 
 .nav-links li a{
     position: relative;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     color: var(--text-color);
     text-decoration: none;
