@@ -386,7 +386,7 @@ class SubjectInfo extends Component
 
     public function search(){
         $this->resultss = DB::table('subjects')
-            ->where('subject_code', 'LIKE', '%'.$this->searchInput.'%')
+            ->where('name', 'LIKE', '%'.$this->searchInput.'%')
             ->get();
         if ($this->base == 1){
             $this->studentSubjectData();
