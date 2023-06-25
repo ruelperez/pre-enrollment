@@ -24,7 +24,7 @@
             @if($ng == 1)
                 <div class="list-group list-group-flush suggest">
                     @foreach($resultss as $result)
-                        <button type="button" class="list-group-item list-group-item-action" wire:click="click_suggest({{$result->id}})">{{$result->subject_code}}</button>
+                        <button type="button" class="list-group-item list-group-item-action" wire:click="click_suggest({{$result->id}})">{{$result->name}}</button>
                     @endforeach
                 </div>
             @endif
