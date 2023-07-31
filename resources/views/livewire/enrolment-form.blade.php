@@ -323,7 +323,7 @@
             </div>
         @elseif($rg == 1)
             <div class="div19">
-                <button type="button" class="btn btn-success" onclick="window.location='{{ route('form.pdf',['user' => $user_id, 'year' => $year_id, 'course' => $course_id, 'sem' => $semester_id])}}'">Preview Form</button>
+                <button type="button" class="btn btn-success" onclick="window.location='{{ route('form.pdf',['user' => $user_id, 'year' => $year_id, 'course' => $course_id, 'sem' => $semester_id])}}'" >Preview Form</button>
             </div>
         @endif
 
