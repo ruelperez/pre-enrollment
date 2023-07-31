@@ -11,9 +11,9 @@
 ### Installation
 
 1. Clone or download this repository [pre-enrollment](https://github.com/ruelperez/pre-enrollment)
-2. Open the cloned project in your code editor.
-3. Create database name `kiosk`
-4. Import `kiosk.sql` located at [database/kiosk.sql](database/kiosk.sql)
+2. Create database name `kiosk`
+3. Import `kiosk.sql` located at [database/kiosk.sql](database/kiosk.sql)
+4. Open the cloned project in your code editor.
 5. Open terminal and execute the following commands:
 
 #### Install Backend dependencies:
