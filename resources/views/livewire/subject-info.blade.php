@@ -1,7 +1,7 @@
 
 <div class="sub-info"> @include('modal.add_subject')
     <form wire:submit.prevent="submit">
-        <div class="adiv">
+        <div class="adiv" style="padding-right: 7%;">
             <div class="select1">
                 <select class="form-select" aria-label="Default select example" style="text-align: center" wire:model.defer="year_id">
                     <option selected>Year Level</option>
