@@ -1,4 +1,5 @@
 @include('partial.header')
+
 <div class="d-flex">
     <span style="font-size:30px;cursor:pointer; width: 5%; text-align: center;padding-top: 20px;" onclick="openNav()">&#9776; </span>
     <div class="container-fluid" style="background-color: transparent; height: 94px; margin-bottom: 30px;">
@@ -7,7 +8,7 @@
     </div>
     @include('logout')
 </div>
-
+<button href="/dev" wire:navigate>buttons</button>
 {{--<div id="mySidenav" class="sidenav">--}}
 {{--    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>--}}
 {{--    <div style=" height: 94px; width: 80%; padding-left: 10px; color: white;">--}}

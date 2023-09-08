@@ -56,6 +56,7 @@
 
     </title>
     @livewireStyles
+    @livewireScripts
 </head>
 <body>
 

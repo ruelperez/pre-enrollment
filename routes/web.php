@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login-page');
+});
+
+Route::get('/dev', function () {
+    return view('dev');
 });
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function (){
